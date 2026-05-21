@@ -266,7 +266,9 @@ export async function getPageHeroConfig(pageKey: string) {
     const config = await prisma.pageHeroConfig.findUnique({
       where: { pageKey },
     });
-    return config ? normalizePageHeroLabel(config) : null;
+    return config
+      ? normalizePageHeroLabel(config)
+      : (fallbackPageHeroConfigs.find((fallbackConfig) => fallbackConfig.pageKey === pageKey) ?? null);
   } catch (error) {
     logFallback(`pageHeroConfig:${pageKey}`, error);
     return fallbackPageHeroConfigs.find((config) => config.pageKey === pageKey) ?? null;
