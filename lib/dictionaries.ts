@@ -57,7 +57,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
       keywords: ["신호텍", "Shinhotek", "레이저", "광학기기", "레이저 스캐너", "레이저 계측", "광학 솔루션", "빔 딜리버리"],
     },
     nav: [
-      { label: "회사소개", href: "/company" },
+      { label: "회사소개", href: "/company", children: [
+        { label: "회사소개", href: "/company" },
+        { label: "CEO 인사말 & 회사비전", href: "/company/ceo-vision" },
+        { label: "파트너사 소개", href: "/company/partners" },
+        { label: "찾아오는길", href: "/company/directions" },
+      ] },
       { label: "솔루션소개", href: "/applications" },
       { label: "제품", href: "/products", children: productChildrenKo },
       { label: "고객지원", href: "/contact", children: [
@@ -117,7 +122,12 @@ Components` },
       keywords: ["Shinhotek", "laser", "optical equipment", "laser scanner", "laser metrology", "optical solution", "beam delivery"],
     },
     nav: [
-      { label: "Company", href: "/company" },
+      { label: "Company", href: "/company", children: [
+        { label: "Company", href: "/company" },
+        { label: "CEO Message & Vision", href: "/company/ceo-vision" },
+        { label: "Partners", href: "/company/partners" },
+        { label: "Directions", href: "/company/directions" },
+      ] },
       { label: "Solution", href: "/applications" },
       { label: "Product", href: "/products", children: productChildrenEn },
       { label: "Contact", href: "/contact", children: [

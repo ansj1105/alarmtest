@@ -9572,3 +9572,70 @@ body {
 .homeMakerSection {
   padding: 0 0 clamp(72px, 7vw, 108px);
 }
+
+.companyOverviewSurface {
+  display: grid;
+  gap: 30px;
+}
+
+.companyOverviewBrand {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--color-primary);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.companySubpageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(0, 75, 132, 0.18);
+}
+
+.companySubpageCard {
+  display: grid;
+  gap: 10px;
+  padding: 24px 22px;
+  color: inherit;
+  text-decoration: none;
+  border-right: 1px solid rgba(0, 75, 132, 0.18);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.companySubpageCard:last-child {
+  border-right: 0;
+}
+
+.companySubpageCard strong {
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.companySubpageCard span {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.companySubpageCard:hover,
+.companySubpageCard:focus-visible {
+  background: rgba(0, 75, 132, 0.06);
+}
+
+@media (max-width: 900px) {
+  .companySubpageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .companySubpageCard {
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 75, 132, 0.18);
+  }
+
+  .companySubpageCard:last-child {
+    border-bottom: 0;
+  }
+}
