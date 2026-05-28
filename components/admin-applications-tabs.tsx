@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { deleteApplication, saveApplication } from "@/app/admin/actions";
+import { AdminRichTextEditor } from "@/components/admin-rich-text-editor";
 import { siteUrl } from "@/lib/site";
 
 type ApplicationItem = {
@@ -119,14 +120,8 @@ export function AdminApplicationsTabs({
               </label>
             </div>
             <div className="lumosAdminFormGrid">
-              <label className="field lumosAdminEditorField">
-                <span>Body KO</span>
-                <textarea name="summaryKo" rows={10} />
-              </label>
-              <label className="field lumosAdminEditorField">
-                <span>Body EN</span>
-                <textarea name="summaryEn" rows={10} />
-              </label>
+              <AdminRichTextEditor name="summaryKo" label="Body KO" />
+              <AdminRichTextEditor name="summaryEn" label="Body EN" />
             </div>
             <p className="adminHint">
               본문은 빈 줄로 문단을 나눌 수 있고, 일반 줄바꿈은 같은 문단 안의 줄바꿈으로 표시됩니다.
@@ -222,14 +217,8 @@ export function AdminApplicationsTabs({
               </label>
             </div>
             <div className="lumosAdminFormGrid">
-              <label className="field lumosAdminEditorField">
-                <span>Body KO</span>
-                <textarea name="summaryKo" rows={10} defaultValue={activeApplication.summaryKo} />
-              </label>
-              <label className="field lumosAdminEditorField">
-                <span>Body EN</span>
-                <textarea name="summaryEn" rows={10} defaultValue={activeApplication.summaryEn} />
-              </label>
+              <AdminRichTextEditor name="summaryKo" label="Body KO" defaultValue={activeApplication.summaryKo} />
+              <AdminRichTextEditor name="summaryEn" label="Body EN" defaultValue={activeApplication.summaryEn} />
             </div>
             <p className="adminHint">
               본문은 빈 줄로 문단을 나눌 수 있고, 일반 줄바꿈은 같은 문단 안의 줄바꿈으로 표시됩니다.

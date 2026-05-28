@@ -1,6 +1,7 @@
 "use client";
 
 import { updateCompanyContent } from "@/app/admin/actions";
+import { AdminRichTextEditor } from "@/components/admin-rich-text-editor";
 import { siteUrl } from "@/lib/site";
 
 type CompanyContentData = {
@@ -34,12 +35,7 @@ function EditorField({
   defaultValue: string;
   rows?: number;
 }) {
-  return (
-    <label className="field lumosAdminEditorField">
-      <span>{label}</span>
-      <textarea name={name} defaultValue={defaultValue} rows={rows} />
-    </label>
-  );
+  return <AdminRichTextEditor name={name} label={label} defaultValue={defaultValue} />;
 }
 
 export function AdminCompanyEditor({ companyContent }: { companyContent: CompanyContentData }) {

@@ -107,7 +107,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
               </div>
             </div>
 
-            <div className="buttonRow" style={{ marginTop: 10 }}>
+            <div className="buttonRow directionsExternalLinks">
               <a href={googleMapUrl} target="_blank" rel="noreferrer" className="button secondary">
                 Google Maps
               </a>

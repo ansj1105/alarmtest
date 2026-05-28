@@ -10449,9 +10449,1932 @@ body {
   border-right: 0;
 }
 
+/* SHINHOTEK partner page reference layout */
+.companyPartnerSection {
+  padding: 0 0 clamp(70px, 8vw, 110px);
+  background: #101214;
+}
+
+.companyPartnerSurface {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  background: #343434;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.companyPartnerTopBar {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.75fr) minmax(0, 1.8fr) minmax(140px, 0.55fr);
+  gap: clamp(22px, 4vw, 54px);
+  align-items: start;
+  min-height: 190px;
+  padding: clamp(30px, 4vw, 52px) clamp(28px, 5vw, 64px);
+}
+
+.companyPartnerBrand {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: center;
+}
+
+.companyPartnerBrand strong {
+  color: #e8edf2;
+  font-size: clamp(22px, 2vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.companyPartnerBrand small {
+  grid-column: 2;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(15px, 1.4vw, 22px);
+  letter-spacing: 0.22em;
+}
+
+.companyPartnerCube {
+  grid-row: 1 / span 2;
+  width: 42px;
+  height: 42px;
+  background:
+    linear-gradient(150deg, #00b9ec 0 33%, transparent 34%),
+    linear-gradient(30deg, #18b95f 0 52%, transparent 53%),
+    linear-gradient(270deg, #e9252f 0 60%, transparent 61%);
+  clip-path: polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%);
+}
+
+.companyPartnerCategoryNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(18px, 3.2vw, 44px);
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.companyPartnerCategoryNav span {
+  color: #f4f7fb;
+  font-size: clamp(14px, 1.05vw, 18px);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.companyPartnerFollow {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.companyPartnerQr {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border: 4px solid #ffffff;
+  background:
+    linear-gradient(90deg, #111111 10px, transparent 10px 18px, #111111 18px 28px, transparent 28px),
+    linear-gradient(#111111 10px, transparent 10px 18px, #111111 18px 28px, transparent 28px),
+    #ffffff;
+  color: transparent;
+}
+
+.companyPartnerLogoWall {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 0;
+  background: transparent;
+}
+
+.companyPartnerLogoTile {
+  display: grid;
+  place-items: center;
+  min-height: 118px;
+  padding: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.companyPartnerLogoTile img {
+  max-width: min(180px, 82%);
+  max-height: 68px;
+  object-fit: contain;
+  filter: brightness(1.05);
+}
+
+.companyPartnerLogoTile span {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.companyPartnerSocialRow {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 28px 0 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.companyPartnerSocialRow span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #6aa64b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.companyPartnerCert {
+  margin: 0;
+  padding: 0 24px 32px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.companyPartnerGrid {
+  display: none;
+}
+
 @media (max-width: 960px) {
-  .homeSeriesRow .seriesFeatureCard,
-  .homeSeriesRow.isBottom .seriesFeatureCard {
+  .companyPartnerTopBar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .companyPartnerLogoWall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .companyPartnerLogoWall {
+    grid-template-columns: 1fr;
+  }
+
+  .companyPartnerCategoryNav {
+    gap: 14px 20px;
+  }
+}
+
+/* SHINHOTEK directions page reference layout */
+.directionsTwoCol {
+  gap: 12px;
+  padding: clamp(22px, 3vw, 34px);
+  background: #ffffff;
+}
+
+.directionsInfoCard,
+.directionsMapCard {
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.directionsInfoCard {
+  padding: 0;
+}
+
+.directionsInfoLayout {
+  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 58px);
+  align-items: stretch;
+}
+
+.directionsCompanyImageWrap {
+  aspect-ratio: 1 / 1.08;
+  min-height: 0;
+  background: #eef3f7;
+}
+
+.directionsCompanyImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.directionsInfoCard .stack {
+  align-content: start;
+  gap: 0;
+  padding-top: 2px;
+}
+
+.directionsInfoCard .stack > strong,
+.directionsLocationGroup strong {
+  color: #1c2b3a;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.directionsInfoCard .stack > span,
+.directionsLocationGroup > span {
+  color: #4d5a66;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.directionsLocationGroup {
+  gap: 6px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e6ebf0;
+}
+
+.directionsContactRows {
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 3px 12px;
+  color: #4d5a66;
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.directionsContactRows span:nth-child(odd) {
+  color: #1c2b3a;
+  font-weight: 800;
+}
+
+.directionsExternalLinks {
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.directionsExternalLinks .button {
+  min-height: 34px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sh-blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.directionsExternalLinks .button:hover,
+.directionsExternalLinks .button:focus-visible {
+  color: #0b4f9c;
+  text-decoration: underline;
+}
+
+.directionsMapCard {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.directionsMapIframe {
+  width: 100%;
+  height: clamp(260px, 26vw, 360px);
+  margin: 0;
+}
+
+.directionsMapTabs {
+  display: flex;
+  justify-content: center;
+  gap: clamp(22px, 7vw, 90px);
+  margin-top: 10px;
+}
+
+.directionsMapTab {
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #5c6873;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.directionsMapTab.isActive {
+  background: transparent;
+  color: var(--sh-blue);
+}
+
+@media (max-width: 900px) {
+  .directionsTwoCol {
+    padding: 20px;
+  }
+
+  .directionsInfoLayout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .directionsCompanyImageWrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 560px) {
+  .directionsTwoCol {
+    padding: 16px;
+  }
+
+  .directionsContactRows {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .directionsMapTabs {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+}
+
+/* SHINHOTEK product index/detail reference layout */
+.productsPage .subpageContent {
+  padding-top: clamp(34px, 5vw, 70px);
+}
+
+.productsShowcaseHead {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e1e6ec;
+}
+
+.productsShowcaseHead span {
+  color: #ff9600;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.productsShowcaseHead h2 {
+  margin: 0;
+  color: #1d2935;
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.productsShowcaseHead p {
+  max-width: 760px;
+  margin: 0;
+  color: #6b7681;
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+.productLineupRail {
+  display: none;
+}
+
+.productsShowcase {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 34px);
+  padding: 0 0 clamp(44px, 6vw, 80px);
+  border: 0;
+  background: transparent;
+}
+
+.productShowcaseRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-content: start;
+  min-height: 100%;
+  padding: 0;
+  border: 1px solid #edf0f4;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(16, 26, 37, 0.06);
+}
+
+.productShowcaseMedia {
+  width: 100%;
+  height: clamp(170px, 15vw, 230px);
+  padding: 22px 24px;
+  border-bottom: 1px solid #edf0f4;
+  background: #f8fafc;
+}
+
+.productShowcaseImage {
+  object-fit: contain;
+  background: transparent;
+}
+
+.productShowcaseBody {
+  align-content: start;
+  gap: 12px;
+  padding: 20px 20px 0;
+}
+
+.productShowcaseTitle {
+  color: #ff9600;
+  font-size: clamp(18px, 1.35vw, 24px);
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.productShowcaseText {
+  min-height: 92px;
+  color: #414d59;
+  font-size: 13px;
+  line-height: 1.58;
+  text-align: center;
+}
+
+.productShowcaseTags {
+  justify-content: center;
+  min-height: 68px;
+  margin-top: 0;
+}
+
+.productShowcaseTags li {
+  min-height: 25px;
+  padding: 0 9px;
+  border: 1px solid #e6ebef;
+  background: #ffffff;
+  color: #53606c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.productShowcaseMore {
+  display: grid;
+  place-items: center;
+  min-height: 40px;
+  margin: 12px -20px 0;
+  background: #ff9d14;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.productShowcaseMore:hover,
+.productShowcaseMore:focus-visible {
+  background: #e78600;
+}
+
+.productDetailHero {
+  padding: clamp(30px, 4vw, 58px) 0;
+  background: #151617;
+}
+
+.productDetailPage .productDetailHeroInner {
+  width: min(1040px, calc(100% - 32px));
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.8fr);
+  gap: 22px;
+  align-items: stretch;
+  border: 0;
+  background: transparent;
+}
+
+.productDetailCopy {
+  align-content: start;
+  gap: 22px;
+  padding: clamp(28px, 3vw, 44px);
+  background: #7b7775;
+}
+
+.productMetaLine span {
+  font-size: clamp(26px, 2.7vw, 44px);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.productMetaLine strong {
+  font-size: clamp(18px, 1.6vw, 28px);
+  line-height: 1.22;
+}
+
+.productDetailReferenceBlock {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.productDetailReferenceBlock span,
+.productDetailReferenceBlock p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.productDetailReferenceBlock strong,
+.productDetailFeatureTitle {
+  color: #ff9d14;
+}
+
+.productDetailFeatureItem {
+  font-size: clamp(14px, 1vw, 18px);
+}
+
+.productDetailVisual {
+  display: grid;
+  gap: 14px;
+}
+
+.productReferenceLabel {
+  margin: 0;
+  color: #ff9d14;
+  font-size: 11px;
+  font-weight: 900;
+  text-align: left;
+}
+
+.productDetailVisualPanel {
+  min-height: 260px;
+  background: #85817f;
+}
+
+.productDetailVisualImage {
+  object-fit: contain;
+  padding: 24px;
+}
+
+.productDetailQuickCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.productDetailQuickCard {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  min-height: 110px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #817c79;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.productDetailQuickCard span {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.productDetailQuickCard strong {
+  color: #ffffff;
+  font-size: clamp(18px, 1.45vw, 25px);
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.productDetailQuickCard.isLink {
+  background:
+    linear-gradient(0deg, rgba(20, 22, 24, 0.38), rgba(20, 22, 24, 0.38)),
+    #8a8581;
+}
+
+.productDetailQuickCard.isLink:hover,
+.productDetailQuickCard.isLink:focus-visible {
+  background:
+    linear-gradient(0deg, rgba(255, 157, 20, 0.26), rgba(255, 157, 20, 0.26)),
+    #8a8581;
+}
+
+.productCmsDetailSection {
+  background: #ffffff;
+}
+
+.productCmsDetailGrid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.productCmsDetailCopy,
+.productCmsDetailListPanel {
+  border: 0;
+}
+
+.productCmsDetailCopy {
+  padding: 0;
+}
+
+.productCmsDetailCopy h2 {
+  color: #ff9600;
+  font-size: clamp(22px, 2vw, 34px);
+  font-weight: 800;
+  text-align: left;
+}
+
+@media (max-width: 1080px) {
+  .productsShowcase {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .productsShowcase {
+    grid-template-columns: 1fr;
+  }
+
+  .productDetailPage .productDetailHeroInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Optical Solution detail: dark ULO-style technical page */
+.productDetailPage-optical-solution {
+  background: #080f14;
+}
+
+.productDetailPage-optical-solution .subpageHero {
+  background: #071018;
+}
+
+.productDetailPage-optical-solution .subpageHeroBgOverlay {
+  background:
+    linear-gradient(90deg, rgba(3, 10, 16, 0.88) 0%, rgba(3, 10, 16, 0.46) 58%, rgba(3, 10, 16, 0.72) 100%),
+    linear-gradient(180deg, rgba(3, 10, 16, 0.62) 0%, rgba(3, 10, 16, 0.28) 50%, rgba(3, 10, 16, 0.82) 100%);
+}
+
+.productDetailPage-optical-solution .productDetailHero {
+  padding: clamp(36px, 5vw, 72px) 0 clamp(28px, 4vw, 56px);
+  background:
+    radial-gradient(circle at 76% 18%, rgba(0, 176, 214, 0.2), transparent 30%),
+    linear-gradient(135deg, #071018 0%, #0b1821 52%, #05090d 100%);
+}
+
+.productDetailPage-optical-solution .productDetailHeroInner {
+  width: min(1180px, calc(100% - 32px));
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: clamp(24px, 3vw, 42px);
+  border: 1px solid rgba(84, 206, 236, 0.2);
+  background: rgba(7, 15, 21, 0.82);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.32);
+}
+
+.productDetailPage-optical-solution .productDetailCopy {
+  padding: clamp(34px, 4vw, 58px);
+  background:
+    linear-gradient(180deg, rgba(13, 36, 48, 0.86), rgba(8, 20, 28, 0.94));
+}
+
+.productDetailPage-optical-solution .productMetaLine span {
+  color: #e9fbff;
+  font-size: clamp(30px, 3vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.productDetailPage-optical-solution .productMetaLine strong {
+  color: rgba(222, 244, 250, 0.84);
+  font-size: clamp(16px, 1.35vw, 24px);
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+
+.productDetailPage-optical-solution .productDetailReferenceBlock {
+  border-color: rgba(84, 206, 236, 0.28);
+}
+
+.productDetailPage-optical-solution .productDetailReferenceBlock span,
+.productDetailPage-optical-solution .productDetailReferenceBlock p {
+  color: rgba(224, 242, 248, 0.78);
+}
+
+.productDetailPage-optical-solution .productDetailReferenceBlock strong,
+.productDetailPage-optical-solution .productDetailFeatureTitle,
+.productDetailPage-optical-solution .productReferenceLabel,
+.productDetailPage-optical-solution .productDetailKicker {
+  color: #00b8df;
+}
+
+.productDetailPage-optical-solution .productDetailFeatureItem {
+  color: rgba(239, 250, 253, 0.9);
+  font-size: clamp(14px, 1vw, 17px);
+}
+
+.productDetailPage-optical-solution .productDetailVisual {
+  padding: clamp(18px, 2vw, 28px) clamp(18px, 2vw, 28px) clamp(24px, 2.5vw, 36px) 0;
+}
+
+.productDetailPage-optical-solution .productReferenceLabel {
+  padding-left: 4px;
+  letter-spacing: 0.14em;
+}
+
+.productDetailPage-optical-solution .productDetailVisualPanel {
+  min-height: clamp(300px, 30vw, 460px);
+  border: 1px solid rgba(84, 206, 236, 0.22);
+  background:
+    linear-gradient(135deg, rgba(0, 184, 223, 0.1), rgba(255, 255, 255, 0.02)),
+    #0d1720;
+}
+
+.productDetailPage-optical-solution .productDetailVisualImage {
+  object-fit: contain;
+  padding: clamp(22px, 3vw, 44px);
+  filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.45));
+}
+
+.productDetailPage-optical-solution .productDetailQuickCards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.productDetailPage-optical-solution .productDetailQuickCard {
+  min-height: 96px;
+  border-color: rgba(84, 206, 236, 0.18);
+  background: rgba(14, 31, 42, 0.86);
+}
+
+.productDetailPage-optical-solution .productDetailQuickCard span {
+  color: rgba(210, 235, 242, 0.72);
+}
+
+.productDetailPage-optical-solution .productDetailQuickCard strong {
+  color: #f2fbff;
+}
+
+.productDetailPage-optical-solution .productDetailQuickCard.isLink {
+  background:
+    linear-gradient(135deg, rgba(0, 184, 223, 0.22), rgba(0, 112, 156, 0.12)),
+    rgba(14, 31, 42, 0.9);
+}
+
+.productDetailPage-optical-solution .subpageContent {
+  padding-top: clamp(34px, 5vw, 72px);
+  padding-bottom: clamp(60px, 7vw, 100px);
+}
+
+.productDetailPage-optical-solution .productCmsDetailSection {
+  gap: clamp(28px, 4vw, 52px);
+  background: transparent;
+}
+
+.productDetailPage-optical-solution .productCmsDetailGrid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.productDetailPage-optical-solution .productCmsDetailCopy,
+.productDetailPage-optical-solution .productCmsDetailListPanel,
+.productDetailPage-optical-solution .productCmsSpecBlock {
+  border: 1px solid rgba(84, 206, 236, 0.14);
+  background: rgba(12, 23, 31, 0.92);
+}
+
+.productDetailPage-optical-solution .productCmsDetailCopy {
+  padding: clamp(28px, 3.5vw, 48px);
+}
+
+.productDetailPage-optical-solution .productCmsDetailCopy h2 {
+  color: #e9fbff;
+  font-size: clamp(26px, 2.4vw, 42px);
+  font-weight: 700;
+  text-align: left;
+}
+
+.productDetailPage-optical-solution .productCmsDetailText {
+  color: rgba(224, 242, 248, 0.82);
+  font-size: 15px;
+  line-height: 1.82;
+}
+
+.productDetailPage-optical-solution .productCmsDetailList {
+  padding: clamp(22px, 2.5vw, 34px);
+}
+
+.productDetailPage-optical-solution .productCmsDetailList + .productCmsDetailList {
+  border-top-color: rgba(84, 206, 236, 0.14);
+}
+
+.productDetailPage-optical-solution .productCmsDetailList h3 {
+  color: #00b8df;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.productDetailPage-optical-solution .productCmsDetailList ul {
+  color: rgba(224, 242, 248, 0.82);
+}
+
+.productDetailPage-optical-solution .productTechTable tbody th,
+.productDetailPage-optical-solution .productTechTable tbody td {
+  border-color: rgba(84, 206, 236, 0.14);
+  color: rgba(224, 242, 248, 0.86);
+  background: rgba(9, 18, 25, 0.88);
+}
+
+.productDetailPage-optical-solution .productTechTable tbody th {
+  color: #9eeeff;
+}
+
+@media (max-width: 960px) {
+  .productDetailPage-optical-solution .productDetailHeroInner,
+  .productDetailPage-optical-solution .productCmsDetailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productDetailPage-optical-solution .productDetailVisual {
+    padding: 0 clamp(22px, 4vw, 34px) clamp(28px, 4vw, 42px);
+  }
+}
+
+@media (max-width: 560px) {
+.productDetailPage-optical-solution .productDetailQuickCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Manufacturer logo flowbar: use provided Excel logo assets */
+.homeMakerSection {
+  background: #ffffff;
+}
+
+.makerMarquee {
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.makerMarqueeTrack {
+  gap: 18px;
+}
+
+.makerLogoBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 176px;
+  min-width: 176px;
+  height: 66px;
+  padding: 12px 18px;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  background: #ffffff;
+  text-decoration: none;
+}
+
+.makerLogoBox img {
+  display: block;
+  max-width: 100%;
+  max-height: 38px;
+  object-fit: contain;
+}
+
+.makerLogoBox:focus-visible,
+.makerLogoBox:hover {
+  border-color: rgba(0, 95, 127, 0.28);
+  background: #f8fbfd;
+}
+
+@media (max-width: 720px) {
+  .makerLogoBox {
+    width: 142px;
+    min-width: 142px;
+    height: 56px;
+    padding: 10px 14px;
+  }
+
+  .makerLogoBox img {
+    max-height: 32px;
+  }
+}
+
+@media (max-width: 960px) {
+.homeSeriesRow .seriesFeatureCard,
+.homeSeriesRow.isBottom .seriesFeatureCard {
+  width: 100%;
+}
+}
+
+/* SHINHOTEK main section 1 */
+.heroSection {
+  min-height: clamp(560px, 72vh, 760px);
+  padding: clamp(74px, 7vw, 96px) 0 clamp(60px, 6vw, 88px);
+  background: #080f20;
+}
+
+.heroSection::before {
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.72;
+}
+
+.heroSection::after {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 28, 0.76) 0%, rgba(6, 10, 28, 0.5) 48%, rgba(6, 10, 28, 0.12) 100%),
+    linear-gradient(180deg, rgba(4, 8, 18, 0.18) 0%, rgba(4, 8, 18, 0.36) 100%);
+}
+
+.heroInner {
+  grid-template-columns: minmax(0, 58%) minmax(300px, 36%);
+  align-items: center;
+  min-height: clamp(430px, 54vh, 620px);
+}
+
+.heroCopy {
+  width: min(100%, 720px);
+  max-width: 720px;
+  transform: translateY(0);
+}
+
+.heroMessagePanel {
+  display: flex;
+  align-items: center;
+  min-height: 88px;
+  padding: clamp(22px, 3vw, 34px) clamp(28px, 4vw, 56px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(238, 238, 240, 0.9);
+  color: #111827;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+}
+
+.heroMessagePanelPrimary {
+  width: min(70%, 560px);
+}
+
+.heroMessagePanelSecondary {
+  width: min(88%, 720px);
+  margin-top: 18px;
+}
+
+.heroMessagePanel :is(p, h3, h4) {
+  margin: 0;
+}
+
+.heroMessagePanel p {
+  font-size: clamp(18px, 2.1vw, 26px);
+  line-height: 1.45;
+}
+
+.heroMessagePanel h3 {
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.heroVisualPanel {
+  position: relative;
+  min-height: clamp(300px, 44vw, 430px);
+  padding: clamp(34px, 4vw, 58px);
+  overflow: hidden;
+  border: 1px solid rgba(35, 190, 168, 0.26);
+  background:
+    radial-gradient(circle at 62% 42%, rgba(24, 190, 169, 0.2), transparent 34%),
+    linear-gradient(145deg, rgba(10, 34, 32, 0.92), rgba(7, 24, 27, 0.88));
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+}
+
+.heroVisualBrand {
+  position: absolute;
+  top: 34px;
+  right: 42px;
+  color: rgba(209, 255, 247, 0.82);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.heroVisualFrame {
+  position: absolute;
+  inset: 18% 12% 12% 20%;
+  display: grid;
+  place-items: center;
+  border-left: 2px solid rgba(0, 196, 176, 0.72);
+  border-top: 2px solid rgba(0, 196, 176, 0.72);
+}
+
+.heroVisualFrame::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 38%;
+  height: 42%;
+  border-right: 2px solid rgba(0, 196, 176, 0.72);
+  border-bottom: 2px solid rgba(0, 196, 176, 0.72);
+}
+
+.heroVisualFrame img {
+  width: min(86%, 300px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.34));
+}
+
+.heroLearnMore {
+  min-width: 112px;
+  min-height: 42px;
+  margin-top: 28px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #ff8b22;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(255, 139, 34, 0.26);
+}
+
+.heroLearnMore:hover,
+.heroLearnMore:focus-visible {
+  background: #eb7814;
+}
+
+.lumosAdminRichEditor .ProseMirror {
+  min-height: 180px;
+  padding: 14px 16px;
+  outline: none;
+}
+
+.lumosAdminRichEditor .ProseMirror p {
+  margin: 0 0 10px;
+}
+
+.lumosAdminRichEditor .ProseMirror h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.lumosAdminRichEditor .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .heroMessagePanelPrimary,
+  .heroMessagePanelSecondary {
     width: 100%;
+  }
+
+  .heroVisualPanel {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 56px 0 64px;
+  }
+
+  .heroMessagePanel {
+    min-height: 76px;
+    padding: 20px 22px;
+  }
+
+  .heroVisualPanel {
+    min-height: 260px;
+    padding: 28px;
+  }
+}
+
+/* SHINHOTEK main section 2 */
+.homeSeriesSection {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(70px, 7vw, 96px) 0 clamp(68px, 7vw, 94px);
+  background:
+    linear-gradient(180deg, rgba(8, 15, 31, 0.72) 0%, rgba(8, 15, 31, 0.78) 100%),
+    url("/subpage-products-laser-bg.png") center / cover no-repeat;
+}
+
+.homeSeriesInner {
+  gap: 24px;
+}
+
+.homeSeriesHead {
+  justify-items: center;
+  max-width: 100%;
+  text-align: center;
+}
+
+.homeSeriesHead .sectionTitle {
+  color: #ffffff;
+  font-size: clamp(24px, 2.3vw, 34px);
+  line-height: 1.15;
+}
+
+.homeSeriesLeadBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(76%, 860px);
+  min-height: clamp(104px, 12vw, 150px);
+  margin-top: 6px;
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid rgba(8, 22, 42, 0.16);
+  background: rgba(231, 231, 233, 0.92);
+  color: #111827;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+}
+
+.homeSeriesLeadBox :is(p, h3, h4) {
+  margin: 0;
+}
+
+.homeSeriesLeadBox p {
+  font-size: clamp(20px, 2.1vw, 30px);
+  line-height: 1.45;
+}
+
+.homeSeriesDesktop {
+  width: min(88%, 980px);
+  margin: 2px auto 0;
+  gap: 14px;
+  padding: 6px 12px 14px;
+  border-radius: 10px;
+  background: rgba(143, 164, 181, 0.72);
+}
+
+.homeSeriesRow {
+  gap: 20px;
+}
+
+.homeSeriesRow .seriesFeatureCard,
+.homeSeriesRow.isBottom .seriesFeatureCard {
+  width: calc((100% - 40px) / 3);
+}
+
+.seriesFeatureCard {
+  display: grid;
+  grid-template-rows: 1fr;
+  min-height: clamp(112px, 10vw, 142px);
+  overflow: hidden;
+  border: 2px solid rgba(0, 0, 0, 0.86);
+  border-radius: 18px;
+  background: rgba(232, 230, 230, 0.94);
+  box-shadow: none;
+}
+
+.seriesFeatureCard::after {
+  content: none;
+}
+
+.seriesFeatureMedia {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  background: transparent;
+  opacity: 0.16;
+}
+
+.seriesFeatureImageFrame,
+.seriesFeatureImageFrame.isPhoto {
+  width: 100%;
+  height: 100%;
+}
+
+.seriesFeatureImageFrame.isPhoto .seriesFeatureImage,
+.seriesFeatureImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.seriesFeatureContent {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 18px 16px;
+  border-top: 0;
+  background: transparent;
+}
+
+.seriesFeatureTitle,
+.seriesFeatureTitleName,
+.seriesFeatureTitleCategory {
+  color: #111827;
+  font-size: clamp(15px, 1.25vw, 20px);
+  font-weight: 500;
+  line-height: 1.28;
+  text-align: center;
+}
+
+.seriesFeatureSummary {
+  display: none;
+}
+
+.seriesFeatureCard:hover,
+.seriesFeatureCard:focus-visible {
+  transform: translate3d(0, -4px, 0);
+  border-color: var(--sh-blue);
+  background: rgba(241, 243, 245, 0.98);
+}
+
+@media (max-width: 960px) {
+  .homeSeriesLeadBox,
+  .homeSeriesDesktop {
+    width: 100%;
+  }
+
+  .homeSeriesDesktop {
+    display: none;
+  }
+
+  .homeSeriesSlider {
+    display: grid;
+  }
+
+  .homeSeriesSlide .seriesFeatureCard {
+    min-height: 132px;
+  }
+}
+
+/* SHINHOTEK main section 3 */
+.homeSolutionSection {
+  padding: clamp(72px, 7vw, 112px) 0;
+  background:
+    linear-gradient(180deg, rgba(8, 9, 12, 0.96) 0%, rgba(8, 9, 12, 0.98) 100%),
+    url("/subpage-products-laser-bg.png") center / cover no-repeat;
+  color: #ffffff;
+}
+
+.homeSolutionInner {
+  grid-template-columns: minmax(300px, 0.95fr) minmax(340px, 1.05fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.homeSolutionVisualGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.homeSolutionVisualTile {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(150px, 15vw, 210px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: #1b2028;
+  text-decoration: none;
+}
+
+.homeSolutionVisualTile img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  display: block;
+  transition: transform 320ms ease;
+}
+
+.homeSolutionVisualTile:hover img,
+.homeSolutionVisualTile:focus-visible img {
+  transform: scale(1.04);
+}
+
+.homeSolutionVisualTile span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.homeSolutionCopyPanel {
+  display: grid;
+  gap: 22px;
+  align-content: center;
+}
+
+.homeSolutionTitleBox {
+  display: grid;
+  place-items: center;
+  min-height: clamp(92px, 10vw, 128px);
+  width: min(100%, 520px);
+  padding: 24px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(232, 232, 234, 0.92);
+  color: #111827;
+}
+
+.homeSolutionTitleBox h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.homeSolutionLead {
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.75;
+}
+
+.homeSolutionLead :is(p, h3, h4) {
+  margin: 0 0 10px;
+}
+
+.homeSolutionList {
+  display: grid;
+  gap: 20px;
+  max-width: 620px;
+}
+
+.homeSolutionListItem {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  color: inherit;
+  text-decoration: none;
+}
+
+.homeSolutionListIcon {
+  color: #d26e17;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.homeSolutionListItem strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #d98222;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.homeSolutionListItem em {
+  display: block;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .homeSolutionInner {
+    grid-template-columns: 1fr;
+  }
+
+  .homeSolutionTitleBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .homeSolutionVisualGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SHINHOTEK main section 4 */
+.homeContactSection {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 6vw, 76px) 0;
+  background:
+    linear-gradient(90deg, rgba(32, 38, 42, 0.96), rgba(22, 28, 31, 0.96)),
+    repeating-linear-gradient(145deg, rgba(0, 130, 220, 0.2) 0 2px, transparent 2px 18px);
+}
+
+.homeContactSection::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 38%;
+  background:
+    repeating-linear-gradient(145deg, rgba(0, 120, 255, 0.28) 0 2px, transparent 2px 18px),
+    repeating-linear-gradient(35deg, rgba(231, 0, 100, 0.22) 0 2px, transparent 2px 22px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.homeContactBand {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.42fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+  width: min(92%, 1080px);
+  margin: 0 auto;
+  padding: clamp(34px, 5vw, 58px) clamp(42px, 6vw, 72px);
+  border-radius: 6px;
+  background: rgba(64, 72, 72, 0.82);
+  color: #ffffff;
+}
+
+.homeContactCopy {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+}
+
+.homeContactCopy .eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.homeContactTitleBox {
+  display: grid;
+  place-items: center;
+  width: min(100%, 560px);
+  min-height: clamp(70px, 7vw, 92px);
+  border: 1px solid rgba(0, 70, 130, 0.42);
+  background: rgba(232, 232, 234, 0.94);
+  color: #111827;
+}
+
+.homeContactTitleBox h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.homeContactCopy p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.homeContactCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 34px;
+  margin-top: 10px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #ed1265;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.homeContactInfoPanel {
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  min-height: clamp(150px, 16vw, 210px);
+  padding: 28px;
+  border: 1px solid rgba(0, 70, 130, 0.42);
+  background: rgba(232, 232, 234, 0.94);
+  color: #111827;
+  text-align: center;
+}
+
+.homeContactInfoPanel span {
+  font-size: clamp(18px, 1.5vw, 25px);
+  line-height: 1.25;
+}
+
+@media (max-width: 820px) {
+  .homeContactBand {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 30px 24px;
+  }
+
+  .homeContactTitleBox {
+    width: 100%;
+  }
+}
+
+/* SHINHOTEK main section 5 */
+.homeMakerSection {
+  padding: 28px 0;
+  background: #ffffff;
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.makerMarquee {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+  border: 0;
+  background: #ffffff;
+}
+
+.makerMarqueeTrack {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: makerMarquee 32s linear infinite;
+  will-change: transform;
+}
+
+.makerMarquee:hover .makerMarqueeTrack {
+  animation-play-state: paused;
+}
+
+.makerMarqueeArrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 56px;
+  border: 0;
+  background: transparent;
+  color: rgba(17, 24, 39, 0.22);
+  font-size: 38px;
+  line-height: 1;
+  cursor: default;
+}
+
+.makerLogoBox {
+  display: inline-grid;
+  place-items: center;
+  min-width: 124px;
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  background: #ffffff;
+  color: #17375e;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.makerLogoBox-ape {
+  color: #1466c3;
+  font-style: italic;
+}
+
+.makerLogoBox-electro {
+  color: #2f2f2f;
+}
+
+.makerLogoBox-electro::first-letter {
+  color: #f36f6c;
+}
+
+.makerLogoBox-mpb {
+  color: #1580bf;
+  text-decoration: underline;
+  text-decoration-color: #f0bd2c;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.makerLogoBox-crystal {
+  color: #1f2937;
+  font-family: Georgia, serif;
+}
+
+.makerLogoBox-dataray {
+  color: #e3342f;
+  font-size: 13px;
+}
+
+.makerLogoBox-lotis {
+  color: #494fb4;
+  font-style: italic;
+}
+
+@media (max-width: 720px) {
+  .makerMarquee {
+    grid-template-columns: 24px minmax(0, 1fr) 24px;
+    gap: 8px;
+  }
+
+  .makerLogoBox {
+    min-width: 112px;
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .makerMarqueeArrow {
+    width: 24px;
+    font-size: 28px;
+  }
+}
+
+/* SHINHOTEK footer */
+.siteFooter {
+  background: #060b10;
+  color: rgba(255, 255, 255, 0.72);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footerInner {
+  padding: clamp(44px, 5vw, 72px) 0 0;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.15fr) minmax(260px, 1.45fr) repeat(3, minmax(130px, 0.72fr));
+  gap: clamp(24px, 3vw, 46px);
+  align-items: start;
+}
+
+.footerBrandBlock {
+  display: grid;
+  gap: 18px;
+}
+
+.footerBrand {
+  display: inline-flex;
+  width: fit-content;
+}
+
+.footerBrandLogo {
+  width: min(220px, 100%);
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1.08);
+}
+
+.footerBlock {
+  display: grid;
+  gap: 9px;
+  align-content: start;
+}
+
+.footerBlock strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footerBlock a,
+.footerBlock span {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
+  line-height: 1.65;
+  text-decoration: none;
+  word-break: keep-all;
+}
+
+.footerBlock a:hover,
+.footerBlock a:focus-visible,
+.footerPhoneLink:hover,
+.footerPhoneLink:focus-visible {
+  color: #00a6df;
+  outline: 0;
+}
+
+.footerEmail,
+.footerPhoneLink {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  margin-top: clamp(34px, 4vw, 58px);
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerBottom span {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .footerGrid {
+    grid-template-columns: minmax(220px, 1fr) minmax(260px, 1.2fr) repeat(2, minmax(140px, 0.8fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footerBrandBlock,
+  .footerBlock:first-of-type {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .footerBottom {
+    align-items: flex-start;
+  }
+}
+
+/* SHINHOTEK company CEO page reference layout */
+.companyPage {
+  background: #101214;
+}
+
+.companyHeroBand {
+  background: #101214;
+}
+
+.companyCeoSurface {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(260px, 0.82fr);
+  gap: 0;
+  padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 54px);
+  border: 0;
+  background: #111315;
+  box-shadow: none;
+}
+
+.companyCeoIntroLabel {
+  position: absolute;
+  left: clamp(18px, 3vw, 48px);
+  top: clamp(22px, 4vw, 48px);
+  transform: translateX(-72%);
+  display: grid;
+  place-items: center;
+  width: clamp(104px, 12vw, 150px);
+  min-height: clamp(78px, 8vw, 112px);
+  background: rgba(214, 214, 216, 0.94);
+  color: #111827;
+  font-size: clamp(16px, 1.4vw, 22px);
+  line-height: 1.35;
+  text-align: center;
+  z-index: 2;
+}
+
+.companyCeoCopyPanel {
+  border: 2px solid #cf781f;
+  padding: clamp(22px, 3vw, 38px);
+  background: rgba(12, 13, 15, 0.96);
+}
+
+.companyCeoSurface .companyHistoryHeading {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.companyCeoSurface .companyHistoryTitle {
+  color: #ffffff;
+  font-size: clamp(22px, 2.3vw, 34px);
+  line-height: 1.2;
+}
+
+.companyCeoSurface .companyHistoryKicker {
+  color: #d88429;
+}
+
+.companyCeoSurface .companyHistoryBody {
+  max-width: none;
+}
+
+.companyCeoSurface .companyHistoryBody p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.85;
+}
+
+.companyCeoImagePanel {
+  display: grid;
+  place-items: center;
+  min-height: clamp(320px, 34vw, 520px);
+  background:
+    linear-gradient(rgba(224, 224, 226, 0.92), rgba(224, 224, 226, 0.92)),
+    url("/company/history-bg.png") center / cover no-repeat;
+  color: #222;
+  font-size: clamp(20px, 2vw, 32px);
+}
+
+.companyPrinciplesSection {
+  padding: 0 0 clamp(70px, 8vw, 118px);
+  background: #101214;
+}
+
+.companyPrinciplesSurface {
+  width: min(760px, 78%);
+  margin: 0 auto;
+  padding: clamp(38px, 5vw, 62px);
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.34);
+}
+
+.companyPrinciplesIntro {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.companyPrinciplesBrand {
+  color: #7a8798;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.companyPrinciplesLead {
+  width: min(100%, 420px);
+  padding: 10px 22px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 999px;
+  color: #7a8798;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.companyPrinciplesLead p {
+  margin: 0;
+}
+
+.companyPrinciplesTable {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 34px;
+  border: 0;
+}
+
+.companyPrinciplesColumn {
+  border: 0;
+  background: transparent;
+}
+
+.companyPrinciplesHead {
+  justify-content: center;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.companyPrinciplesHead span {
+  display: inline-flex;
+  min-width: 150px;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #f7f8fa;
+  color: #727f90;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.companyPrinciplesCell {
+  min-height: auto;
+  padding: 14px 8px 0;
+  border: 0;
+  background: transparent;
+}
+
+.companyPrinciplesCell p {
+  color: #5f6b7a;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .companyCeoSurface {
+    grid-template-columns: 1fr;
+  }
+
+  .companyCeoIntroLabel {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .companyPrinciplesSurface {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .companyPrinciplesTable {
+    grid-template-columns: 1fr;
   }
 }

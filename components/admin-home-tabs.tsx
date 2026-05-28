@@ -11,6 +11,7 @@ import {
   updateStorySection,
 } from "@/app/admin/actions";
 import { AdminPageHeroTabs } from "@/components/admin-page-hero-tabs";
+import { AdminRichTextEditor } from "@/components/admin-rich-text-editor";
 import { siteUrl } from "@/lib/site";
 
 type SiteConfigData = {
@@ -147,13 +148,21 @@ export function AdminHomeTabs({
                 <span>Hero Image URL</span>
                 <input name="heroImageUrl" defaultValue={siteConfig.heroImageUrl ?? ""} />
               </label>
+              <AdminRichTextEditor name="heroTitleKo" label="Hero Title KO" defaultValue={siteConfig.heroTitleKo} />
+              <AdminRichTextEditor name="heroTitleEn" label="Hero Title EN" defaultValue={siteConfig.heroTitleEn} />
+              <AdminRichTextEditor
+                name="heroDescriptionKo"
+                label="Hero Description KO"
+                defaultValue={siteConfig.heroDescriptionKo}
+              />
+              <AdminRichTextEditor
+                name="heroDescriptionEn"
+                label="Hero Description EN"
+                defaultValue={siteConfig.heroDescriptionEn}
+              />
             </div>
-            <p className="adminHint">Story 영역의 강조 타이틀과 본문은 관리자에서 수정할 수 있습니다.</p>
+            <p className="adminHint">Hero 문구는 TipTap 라이브러리 에디터로 저장되며 메인 첫 섹션에 바로 반영됩니다.</p>
             <input type="hidden" name="heroFontSize" value={siteConfig.heroFontSize} />
-            <input type="hidden" name="heroTitleKo" value={siteConfig.heroTitleKo} />
-            <input type="hidden" name="heroTitleEn" value={siteConfig.heroTitleEn} />
-            <input type="hidden" name="heroDescriptionKo" value={siteConfig.heroDescriptionKo} />
-            <input type="hidden" name="heroDescriptionEn" value={siteConfig.heroDescriptionEn} />
             <button type="submit" className="lumosAdminPrimaryButton">
               Hero 저장
             </button>
@@ -308,14 +317,8 @@ export function AdminHomeTabs({
               </label>
             </div>
             <div className="lumosAdminFormGrid">
-              <label className="field">
-                <span>Series Lead KO</span>
-                <textarea name="seriesLeadKo" defaultValue={siteConfig.seriesLeadKo} />
-              </label>
-              <label className="field">
-                <span>Series Lead EN</span>
-                <textarea name="seriesLeadEn" defaultValue={siteConfig.seriesLeadEn} />
-              </label>
+              <AdminRichTextEditor name="seriesLeadKo" label="Series Lead KO" defaultValue={siteConfig.seriesLeadKo} />
+              <AdminRichTextEditor name="seriesLeadEn" label="Series Lead EN" defaultValue={siteConfig.seriesLeadEn} />
             </div>
             <button type="submit" className="lumosAdminPrimaryButton">
               상품 섹션 저장

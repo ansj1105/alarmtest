@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { resourceBodyToHtml } from "@/lib/resource-rich-text";
 import type { Locale } from "@/lib/site";
 
 type SeriesCardItem = {
@@ -11,6 +12,7 @@ type SeriesCardItem = {
   name: string;
   imageUrl: string;
   imageClassName: string;
+  summary?: string;
 };
 
 const seriesItems: SeriesCardItem[] = [
@@ -26,6 +28,8 @@ type SeriesProductSource = {
   slug: string;
   nameKo: string;
   nameEn: string;
+  summaryKo: string;
+  summaryEn: string;
   imageUrl: string | null;
 };
 
@@ -42,6 +46,7 @@ export function HomeSeriesOverview({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState<number | null>(null);
+  const leadHtml = lead ? resourceBodyToHtml(lead) : "";
   const mergedSeriesItems = products?.length
     ? products.map((product) => {
         const staticItem = seriesItems.find((item) => item.slug === product.slug);
@@ -52,6 +57,7 @@ export function HomeSeriesOverview({
           imageUrl:
             product.imageUrl || staticItem?.imageUrl || "/product-placeholder.svg",
           imageClassName: staticItem?.imageClassName ?? "isGeneric",
+          summary: locale === "ko" ? product.summaryKo : product.summaryEn,
         };
       })
     : seriesItems;
@@ -106,7 +112,9 @@ export function HomeSeriesOverview({
       <div className="container homeSeriesInner">
         <div className="homeSeriesHead">
           <h2 className="sectionTitle">{title ?? "Product Categories"}</h2>
-          {lead ? <p className="sectionLead">{lead}</p> : null}
+          {leadHtml ? (
+            <div className="sectionLead homeSeriesLeadBox" dangerouslySetInnerHTML={{ __html: leadHtml }} />
+          ) : null}
         </div>
 
         <div className="homeSeriesDesktop">
@@ -269,6 +277,7 @@ function SeriesFeatureCard({
             <span className="seriesFeatureTitleCategory">{titleParts.category}</span>
           ) : null}
         </strong>
+        {item.summary ? <span className="seriesFeatureSummary">{item.summary}</span> : null}
       </div>
     </Link>
   );

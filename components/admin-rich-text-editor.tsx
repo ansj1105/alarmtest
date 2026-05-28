@@ -1,6 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Link from "@tiptap/extension-link";
+import Image from "@tiptap/extension-image";
+import { useEffect, useState } from "react";
 
 import { hasRichTextMarkup, plainTextToResourceHtml } from "@/lib/resource-rich-text";
 
@@ -17,19 +21,37 @@ export function AdminRichTextEditor({
   label: string;
   defaultValue?: string;
 }) {
-  const editorRef = useRef<HTMLDivElement | null>(null);
   const [initialHtml] = useState(initialEditorHtml(defaultValue ?? ""));
   const [html, setHtml] = useState(initialHtml);
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Link.configure({
+        openOnClick: false,
+        HTMLAttributes: {
+          target: "_blank",
+          rel: "noreferrer",
+        },
+      }),
+      Image.configure({
+        inline: false,
+        allowBase64: false,
+      }),
+    ],
+    content: initialHtml,
+    immediatelyRender: false,
+    onUpdate: ({ editor }) => {
+      setHtml(editor.getHTML());
+    },
+  });
 
-  function syncFromEditor() {
-    setHtml(editorRef.current?.innerHTML ?? "");
-  }
+  useEffect(() => {
+    if (!editor) {
+      return;
+    }
 
-  function runCommand(command: string, value?: string) {
-    editorRef.current?.focus();
-    document.execCommand(command, false, value);
-    syncFromEditor();
-  }
+    setHtml(editor.getHTML());
+  }, [editor]);
 
   function insertLink() {
     const href = window.prompt("링크 URL을 입력하세요.");
@@ -38,7 +60,7 @@ export function AdminRichTextEditor({
       return;
     }
 
-    runCommand("createLink", href);
+    editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
   }
 
   function insertImage() {
@@ -51,10 +73,8 @@ export function AdminRichTextEditor({
     const widthInput = window.prompt("이미지 너비(px)를 입력하세요.", "720");
     const width = Math.min(1400, Math.max(160, Number(widthInput) || 720));
     const alt = window.prompt("이미지 설명(alt)을 입력하세요.", "") ?? "";
-    const escapedSrc = src.replace(/"/g, "&quot;");
-    const escapedAlt = alt.replace(/"/g, "&quot;");
 
-    runCommand("insertHTML", `<p><img src="${escapedSrc}" alt="${escapedAlt}" width="${width}"></p>`);
+    editor?.chain().focus().setImage({ src, alt, title: String(width) }).run();
   }
 
   return (
@@ -62,37 +82,29 @@ export function AdminRichTextEditor({
       <span>{label}</span>
       <input type="hidden" name={name} value={html} />
       <div className="lumosAdminRichToolbar" aria-label={`${label} toolbar`}>
-        <button type="button" onClick={() => runCommand("formatBlock", "p")}>
-          P
+        <button type="button" onClick={() => editor?.chain().focus().setParagraph().run()}>
+          본문
         </button>
-        <button type="button" onClick={() => runCommand("formatBlock", "h3")}>
-          H3
+        <button type="button" onClick={() => editor?.chain().focus().toggleHeading({ level: 3 }).run()}>
+          소제목
         </button>
-        <button type="button" onClick={() => runCommand("bold")}>
-          B
+        <button type="button" onClick={() => editor?.chain().focus().toggleBold().run()}>
+          굵게
         </button>
-        <button type="button" onClick={() => runCommand("italic")}>
-          I
+        <button type="button" onClick={() => editor?.chain().focus().toggleItalic().run()}>
+          기울임
         </button>
-        <button type="button" onClick={() => runCommand("insertUnorderedList")}>
-          List
+        <button type="button" onClick={() => editor?.chain().focus().toggleBulletList().run()}>
+          목록
         </button>
         <button type="button" onClick={insertLink}>
-          Link
+          링크
         </button>
         <button type="button" onClick={insertImage}>
-          Image/Map
+          이미지/지도
         </button>
       </div>
-      <div
-        ref={editorRef}
-        className="lumosAdminRichEditor"
-        contentEditable
-        suppressContentEditableWarning
-        onInput={syncFromEditor}
-        onBlur={syncFromEditor}
-        dangerouslySetInnerHTML={{ __html: initialHtml }}
-      />
+      <EditorContent editor={editor} className="lumosAdminRichEditor" />
     </div>
   );
 }

@@ -106,7 +106,7 @@ export function Footer({
           </div>
         </div>
         <div className="footerBottom">
-          <span style={{ color: "var(--muted)" }}>{footerLabels.copyright}</span>
+          <span>{footerLabels.copyright}</span>
         </div>
       </div>
     </footer>

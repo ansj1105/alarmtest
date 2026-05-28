@@ -163,6 +163,16 @@ export default async function ProductsPage({
         backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
       />
       <div className="container subpageContent">
+        <section className="productsShowcaseHead">
+          <span>PRODUCTS</span>
+          <h2>{locale === "ko" ? "제품소개" : "Products"}</h2>
+          <p>
+            {locale === "ko"
+              ? "SHINHOTEK은 레이저, 스캐너, 계측, 광학 솔루션까지 공정 목적에 맞는 제품군을 제공합니다."
+              : "SHINHOTEK provides product categories for laser, scanner, metrology, and optical process requirements."}
+          </p>
+        </section>
+
         <nav className="productLineupRail" aria-label={locale === "ko" ? "제품군 바로가기" : "Product lineup"}>
           <div className="productLineupRailHead">
             <span>PRODUCT LINE UP</span>
@@ -212,6 +222,9 @@ export default async function ProductsPage({
                       ))}
                     </ul>
                   ) : null}
+                  <Link href={detailHref} className="productShowcaseMore">
+                    SEE MORE
+                  </Link>
                 </div>
               </article>
             );

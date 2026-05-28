@@ -2,15 +2,18 @@
 import Link from "next/link";
 
 import { getDictionary } from "@/lib/dictionaries";
+import { resourceBodyToHtml } from "@/lib/resource-rich-text";
 import type { Locale } from "@/lib/site";
 import type { CSSProperties } from "react";
 
 type HeroProps = {
   locale: Locale;
   heroImageUrl?: string | null;
+  title?: string | null;
+  description?: string | null;
 };
 
-export function Hero({ locale, heroImageUrl }: HeroProps) {
+export function Hero({ locale, heroImageUrl, title, description }: HeroProps) {
   const dict = getDictionary(locale);
   const imageUrl =
     !heroImageUrl ||
@@ -21,6 +24,8 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
     heroImageUrl === "/hero-main-camera-globe.png"
       ? "/hero-main-laser.png"
       : heroImageUrl;
+  const titleHtml = resourceBodyToHtml(title || dict.hero.mainTitle);
+  const descriptionHtml = resourceBodyToHtml(description || dict.hero.mainLead);
   const heroSpecIcons = [
     "/newhero/icon1-cutout.png",
     "/newhero/icon2-cutout.png",
@@ -86,22 +91,9 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
       </div>
       <div className="container heroInner">
         <div className="heroCopy">
-          <h1 className="headline heroHeadline">
-            <span className="heroHeadlineLine heroHeadlineAccentLine">
-              <span className="heroHeadlineHighlight">{dict.hero.mainTitle}</span>
-            </span>
-          </h1>
+          <div className="heroMessagePanel heroMessagePanelPrimary" dangerouslySetInnerHTML={{ __html: titleHtml }} />
           <div className="heroBody">
-            <p className="heroSubTitle">
-              {dict.hero.mainSubtitle.map((line, index) => (
-                <span key={line}>
-                  {line}
-                  {index < dict.hero.mainSubtitle.length - 1 ? <br /> : null}
-                </span>
-              ))}
-            </p>
-            <span className="heroAccentRule" aria-hidden="true" />
-            <p className="subhead heroLead">{dict.hero.mainLead}</p>
+            <div className="heroMessagePanel heroMessagePanelSecondary" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
             {/*
             <div className="heroRelationBlock">
               <span className="heroRelationLabel">{dict.hero.relationLabel}</span>
@@ -109,21 +101,15 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
             </div>
             */}
           </div>
-          <div className="heroSpecGrid" aria-label={dict.hero.specAriaLabel}>
-            {dict.hero.specs.map((item, index) => (
-              <div className="heroSpecItem" key={item.label}>
-                <span className="heroSpecIcon">
-                  <Image src={heroSpecIcons[index]} alt="" width={72} height={72} />
-                </span>
-                <strong>{item.label}</strong>
-                <span>{item.detail}</span>
-              </div>
-            ))}
-          </div>
           <Link href={`/${locale}/products/laser`} className="heroLearnMore">
-            <span>{dict.hero.ctaDetail}</span>
-            <span aria-hidden="true">→</span>
+            <span>CONTACT US</span>
           </Link>
+        </div>
+        <div className="heroVisualPanel" aria-hidden="true">
+          <div className="heroVisualBrand">CANUNDA PULSE</div>
+          <div className="heroVisualFrame">
+            <Image src="/hero-main-laser.png" alt="" width={420} height={420} priority />
+          </div>
         </div>
       </div>
     </section>

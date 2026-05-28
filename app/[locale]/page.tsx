@@ -39,7 +39,12 @@ export default async function HomePage({
 
   return (
     <>
-      <Hero locale={locale} heroImageUrl={config?.heroImageUrl} />
+      <Hero
+        locale={locale}
+        heroImageUrl={config?.heroImageUrl}
+        title={locale === "ko" ? config?.heroTitleKo : config?.heroTitleEn}
+        description={locale === "ko" ? config?.heroDescriptionKo : config?.heroDescriptionEn}
+      />
       <HomeSeriesOverview
         locale={locale}
         title={locale === "ko" ? config?.seriesTitleKo : config?.seriesTitleEn}

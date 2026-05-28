@@ -175,6 +175,16 @@ export default async function ProductDetailPage({
                 className="productDetailVisualImage detailVisual-generic"
               />
             </div>
+            <div className="productDetailQuickCards">
+              <div className="productDetailQuickCard">
+                <span>{locale === "ko" ? "제조사 로고" : "Maker logo"}</span>
+                <strong>{localizedProductName}</strong>
+              </div>
+              <a className="productDetailQuickCard isLink" href={`/${locale}/contact/quote`}>
+                <span>{locale === "ko" ? "문의하기" : "Contact"}</span>
+                <strong>{locale === "ko" ? "홈페이지 이동 링크 버튼" : "Request information"}</strong>
+              </a>
+            </div>
           </div>
         </div>
       </div>

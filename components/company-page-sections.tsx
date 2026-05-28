@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { DirectionsContent } from "@/components/directions-content";
 import { FadeImage } from "@/components/fade-image";
+import { resourceBodyToHtml } from "@/lib/resource-rich-text";
 import type { Locale } from "@/lib/site";
 
 type LocalizedRecord = Record<string, unknown>;
@@ -16,6 +17,7 @@ type CompanyPartnerItem = {
   name: string;
   body: string;
   website?: string | null;
+  logoUrl?: string | null;
 };
 
 function localizedField(content: LocalizedRecord, field: string, locale: Locale) {
@@ -146,10 +148,13 @@ export function CompanyCeoVisionSections({
   locale: Locale;
   companyContent: LocalizedRecord;
 }) {
+  const isKo = locale === "ko";
   const historyTitle = localizedField(companyContent, "historyTitle", locale);
   const historyBody = localizedField(companyContent, "historyBody", locale);
   const brandTitle = localizedField(companyContent, "brandTitle", locale);
   const brandLead = localizedField(companyContent, "brandLead", locale);
+  const historyBodyHtml = resourceBodyToHtml(historyBody);
+  const brandLeadHtml = resourceBodyToHtml(brandLead);
   const companyPrinciples = [
     {
       heading: localizedField(companyContent, "visionTitle", locale),
@@ -166,17 +171,21 @@ export function CompanyCeoVisionSections({
       <section className="companyHistorySection">
         <div className="container">
           <div className="companyHistorySurface companyCeoSurface">
-            <div className="companyHistoryHeading">
-              <h1 className="companyHistoryTitle">{historyTitle}</h1>
-              <span className="companyHistoryKicker">
-                <span className="companyHistoryKickerMark" />
-                CEO MESSAGE
-              </span>
+            <div className="companyCeoIntroLabel">
+              {isKo ? "소개글 추가" : "Message"}
             </div>
-            <div className="companyHistoryBody">
-              {splitParagraphs(historyBody).map((paragraph, index) => (
-                <p key={`${paragraph.slice(0, 24)}-${index}`}>{renderLines(paragraph)}</p>
-              ))}
+            <div className="companyCeoCopyPanel">
+              <div className="companyHistoryHeading">
+                <h1 className="companyHistoryTitle">{historyTitle}</h1>
+                <span className="companyHistoryKicker">
+                  <span className="companyHistoryKickerMark" />
+                  CEO MESSAGE
+                </span>
+              </div>
+              <div className="companyHistoryBody" dangerouslySetInnerHTML={{ __html: historyBodyHtml }} />
+            </div>
+            <div className="companyCeoImagePanel">
+              <span>{isKo ? "이미지" : "Image"}</span>
             </div>
           </div>
         </div>
@@ -187,7 +196,7 @@ export function CompanyCeoVisionSections({
           <div className="companyPrinciplesSurface">
             <div className="companyPrinciplesIntro">
               <strong className="companyPrinciplesBrand">{brandTitle}</strong>
-              <p className="companyPrinciplesLead">{brandLead}</p>
+              <div className="companyPrinciplesLead" dangerouslySetInnerHTML={{ __html: brandLeadHtml }} />
             </div>
 
             <div className="companyPrinciplesTable" role="table" aria-label="SHINHOTEK vision and goal">
@@ -211,44 +220,56 @@ export function CompanyCeoVisionSections({
 
 export function CompanyPartnersSection({ locale, partners }: { locale: Locale; partners: CompanyPartnerItem[] }) {
   const isKo = locale === "ko";
-
-  const logoWall = partners.length
-    ? partners.map((partner) => partner.name)
-    : ["COHERENT", "TRUMPF", "DATARAY", "ULO OPTICS", "JENOPTIK", "PULSEPOWER"];
+  const categories = isKo
+    ? ["레이저 측정", "광학 측정", "정밀 광학 기계 시스템", "레이저", "기타 제품"]
+    : ["Laser Metrology", "Optical Metrology", "Precision Optics", "Laser", "Other Products"];
 
   return (
     <section className="companyPartnerSection">
       <div className="container">
         <div className="companyPartnerSurface">
-          <div className="companyPartnerIntro">
-            <span className="eyebrow">PARTNERS</span>
-            <h1 className="sectionTitle">{isKo ? "파트너사 소개" : "Partner Network"}</h1>
-            <p className="sectionLead">
-              {isKo
-                ? "신호텍은 레이저, 광학, 계측, 자동화 분야의 파트너 네트워크를 기반으로 고객 공정에 맞는 제품과 솔루션을 연결합니다."
-                : "Shinhotek connects products and solutions for customer processes through a partner network across lasers, optics, metrology, and automation."}
-            </p>
+          <div className="companyPartnerTopBar">
+            <div className="companyPartnerBrand">
+              <span className="companyPartnerCube" aria-hidden="true" />
+              <strong>SHINHOTEK</strong>
+              <small>partners</small>
+            </div>
+            <nav className="companyPartnerCategoryNav" aria-label={isKo ? "파트너 분야" : "Partner categories"}>
+              {categories.map((category) => (
+                <span key={category}>{category}</span>
+              ))}
+            </nav>
+            <div className="companyPartnerFollow">
+              <strong>{isKo ? "우리를 팔로우하세요" : "Follow us"}</strong>
+              <span className="companyPartnerQr">QR</span>
+            </div>
           </div>
           <div className="companyPartnerLogoWall" aria-label={isKo ? "파트너 로고 목록" : "Partner logo list"}>
-            {logoWall.map((name) => (
-              <div key={name} className="companyPartnerLogoTile">
-                <span>{name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="companyPartnerGrid">
             {partners.map((partner) => (
-              <article key={`${partner.name}-${partner.website ?? "partner"}`} className="companyPartnerCard">
-                <strong>{partner.name}</strong>
-                <p>{partner.body}</p>
-                {partner.website ? (
-                  <a href={partner.website} target="_blank" rel="noreferrer">
-                    {isKo ? "웹사이트 보기" : "Visit website"}
-                  </a>
-                ) : null}
-              </article>
+              <a
+                key={`${partner.name}-${partner.website ?? "partner"}`}
+                href={partner.website || "#"}
+                target={partner.website ? "_blank" : undefined}
+                rel={partner.website ? "noreferrer" : undefined}
+                className="companyPartnerLogoTile"
+              >
+                {partner.logoUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={partner.logoUrl} alt={partner.name} />
+                ) : (
+                  <span>{partner.name}</span>
+                )}
+              </a>
             ))}
           </div>
+          <div className="companyPartnerSocialRow" aria-hidden="true">
+            <span>f</span>
+            <span>in</span>
+            <span>yt</span>
+          </div>
+          <p className="companyPartnerCert">
+            {isKo ? "SHINHOTEK 파트너 네트워크와 제품 카테고리는 관리자 페이지에서 관리됩니다." : "Partner network and product categories are managed by SHINHOTEK."}
+          </p>
         </div>
       </div>
     </section>
