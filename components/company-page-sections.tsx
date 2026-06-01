@@ -171,9 +171,7 @@ export function CompanyCeoVisionSections({
       <section className="companyHistorySection">
         <div className="container">
           <div className="companyHistorySurface companyCeoSurface">
-            <div className="companyCeoIntroLabel">
-              {isKo ? "소개글 추가" : "Message"}
-            </div>
+            <div className="companyCeoIntroLabel" aria-hidden="true" />
             <div className="companyCeoCopyPanel">
               <div className="companyHistoryHeading">
                 <h1 className="companyHistoryTitle">{historyTitle}</h1>
@@ -184,9 +182,7 @@ export function CompanyCeoVisionSections({
               </div>
               <div className="companyHistoryBody" dangerouslySetInnerHTML={{ __html: historyBodyHtml }} />
             </div>
-            <div className="companyCeoImagePanel">
-              <span>{isKo ? "이미지" : "Image"}</span>
-            </div>
+            <div className="companyCeoImagePanel" aria-hidden="true" />
           </div>
         </div>
       </section>

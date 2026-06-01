@@ -12207,20 +12207,7 @@ body {
 }
 
 .companyCeoIntroLabel {
-  position: absolute;
-  left: clamp(18px, 3vw, 48px);
-  top: clamp(22px, 4vw, 48px);
-  transform: translateX(-72%);
-  display: grid;
-  place-items: center;
-  width: clamp(104px, 12vw, 150px);
-  min-height: clamp(78px, 8vw, 112px);
-  background: rgba(214, 214, 216, 0.94);
-  color: #111827;
-  font-size: clamp(16px, 1.4vw, 22px);
-  line-height: 1.35;
-  text-align: center;
-  z-index: 2;
+  display: none;
 }
 
 .companyCeoCopyPanel {
@@ -12260,11 +12247,7 @@ body {
   display: grid;
   place-items: center;
   min-height: clamp(320px, 34vw, 520px);
-  background:
-    linear-gradient(rgba(224, 224, 226, 0.92), rgba(224, 224, 226, 0.92)),
-    url("/company/history-bg.png") center / cover no-repeat;
-  color: #222;
-  font-size: clamp(20px, 2vw, 32px);
+  background: url("/company/history-bg.png") center / cover no-repeat;
 }
 
 .companyPrinciplesSection {
@@ -12362,10 +12345,7 @@ body {
   }
 
   .companyCeoIntroLabel {
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-bottom: 16px;
+    display: none;
   }
 
   .companyPrinciplesSurface {
