@@ -104,6 +104,11 @@ export function Footer({
               </Link>
             ))}
           </div>
+
+          <div className="footerFollowBlock">
+            <strong>{locale === "ko" ? "우리를 팔로우하세요" : "Follow us"}</strong>
+            <span className="footerQrCode" aria-label={locale === "ko" ? "신호텍 QR 코드" : "Shinhotek QR code"} />
+          </div>
         </div>
         <div className="footerBottom">
           <span>{footerLabels.copyright}</span>
