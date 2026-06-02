@@ -10805,7 +10805,7 @@ body {
 /* SHINHOTEK partner page reference layout */
 .companyPartnerSection {
   padding: 0 0 clamp(70px, 8vw, 110px);
-  background: #101214;
+  background: #ffffff;
 }
 
 .companyPartnerSurface {
@@ -10813,153 +10813,88 @@ body {
   gap: 0;
   padding: 0;
   border: 0;
-  background: #343434;
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--sh-ink);
   box-shadow: none;
 }
 
-.companyPartnerTopBar {
-  display: grid;
-  grid-template-columns: minmax(170px, 0.75fr) minmax(0, 1.8fr) minmax(140px, 0.55fr);
-  gap: clamp(22px, 4vw, 54px);
-  align-items: start;
-  min-height: 190px;
-  padding: clamp(30px, 4vw, 52px) clamp(28px, 5vw, 64px);
-}
-
-.companyPartnerBrand {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  column-gap: 10px;
-  align-items: center;
-}
-
-.companyPartnerBrand strong {
-  color: #e8edf2;
-  font-size: clamp(22px, 2vw, 32px);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.companyPartnerBrand small {
-  grid-column: 2;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: clamp(15px, 1.4vw, 22px);
-  letter-spacing: 0.22em;
-}
-
-.companyPartnerCube {
-  grid-row: 1 / span 2;
-  width: 42px;
-  height: 42px;
-  background:
-    linear-gradient(150deg, #00b9ec 0 33%, transparent 34%),
-    linear-gradient(30deg, #18b95f 0 52%, transparent 53%),
-    linear-gradient(270deg, #e9252f 0 60%, transparent 61%);
-  clip-path: polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%);
-}
-
-.companyPartnerCategoryNav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(18px, 3.2vw, 44px);
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 8px;
-}
-
-.companyPartnerCategoryNav span {
-  color: #f4f7fb;
-  font-size: clamp(14px, 1.05vw, 18px);
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.companyPartnerFollow {
+.companyPartnerIntroBlock {
   display: grid;
   justify-items: center;
-  gap: 14px;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 800;
+  gap: 10px;
+  padding: clamp(42px, 5vw, 70px) clamp(22px, 4vw, 56px) clamp(34px, 4vw, 52px);
+  text-align: center;
 }
 
-.companyPartnerQr {
-  display: grid;
-  place-items: center;
-  width: 72px;
-  height: 72px;
-  border: 4px solid #ffffff;
-  background:
-    linear-gradient(90deg, #111111 10px, transparent 10px 18px, #111111 18px 28px, transparent 28px),
-    linear-gradient(#111111 10px, transparent 10px 18px, #111111 18px 28px, transparent 28px),
-    #ffffff;
-  color: transparent;
+.companyPartnerIntroBlock span {
+  color: var(--sh-cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.companyPartnerIntroBlock h2 {
+  margin: 0;
+  color: var(--sh-ink);
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.companyPartnerIntroBlock p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--sh-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.companyPartnerDivider {
+  width: 100%;
+  height: clamp(24px, 3vw, 36px);
+  background: #05070a;
 }
 
 .companyPartnerLogoWall {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(42px, 5vw, 68px) clamp(38px, 6vw, 86px);
+  border-top: 0;
   border-left: 0;
-  background: transparent;
+  background: #ffffff;
 }
 
 .companyPartnerLogoTile {
   display: grid;
   place-items: center;
-  min-height: 118px;
-  padding: 22px;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  color: #ffffff;
+  min-height: clamp(88px, 9vw, 128px);
+  padding: clamp(18px, 2.5vw, 30px);
+  border: 0;
+  background: #ffffff;
+  color: var(--sh-ink);
   text-decoration: none;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.companyPartnerLogoTile:hover,
+.companyPartnerLogoTile:focus-visible {
+  opacity: 0.78;
+  transform: translateY(-2px);
 }
 
 .companyPartnerLogoTile img {
-  max-width: min(180px, 82%);
-  max-height: 68px;
+  max-width: min(180px, 86%);
+  max-height: 74px;
   object-fit: contain;
-  filter: brightness(1.05);
+  filter: none;
 }
 
 .companyPartnerLogoTile span {
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--sh-ink);
   font-size: clamp(16px, 1.5vw, 24px);
   font-weight: 800;
   letter-spacing: 0.04em;
-  text-align: center;
-}
-
-.companyPartnerSocialRow {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  padding: 28px 0 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.companyPartnerSocialRow span {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #6aa64b;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.companyPartnerCert {
-  margin: 0;
-  padding: 0 24px 32px;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 13px;
-  line-height: 1.65;
   text-align: center;
 }
 
@@ -10968,14 +10903,9 @@ body {
 }
 
 @media (max-width: 960px) {
-  .companyPartnerTopBar {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-  }
-
   .companyPartnerLogoWall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-inline: clamp(20px, 5vw, 42px);
   }
 }
 
@@ -10984,8 +10914,8 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .companyPartnerCategoryNav {
-    gap: 14px 20px;
+  .companyPartnerLogoWall {
+    padding-block: 34px;
   }
 }
 
@@ -11152,6 +11082,103 @@ body {
     gap: 18px;
     flex-wrap: wrap;
   }
+}
+
+/* ULO-inspired dark directions layout */
+.companyDirectionsSection {
+  padding: clamp(62px, 7vw, 112px) 0;
+  background:
+    linear-gradient(180deg, rgba(6, 15, 23, 0.98), rgba(10, 24, 36, 0.98)),
+    #07131d;
+}
+
+.companyDirectionsIntro {
+  display: grid;
+  gap: 10px;
+  margin-bottom: clamp(26px, 4vw, 48px);
+}
+
+.companyDirectionsIntro .eyebrow {
+  color: var(--sh-cyan);
+}
+
+.companyDirectionsIntro .sectionTitle {
+  color: #ffffff;
+}
+
+.companyDirectionsSection .directionsTwoCol {
+  gap: 1px;
+  padding: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.companyDirectionsSection .directionsInfoCard,
+.companyDirectionsSection .directionsMapCard {
+  background: #0c1b28;
+}
+
+.companyDirectionsSection .directionsInfoCard {
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.companyDirectionsSection .directionsCompanyImageWrap {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #07131d;
+}
+
+.companyDirectionsSection .directionsInfoCard .stack > strong,
+.companyDirectionsSection .directionsLocationGroup strong {
+  color: #ffffff;
+}
+
+.companyDirectionsSection .directionsInfoCard .stack > span,
+.companyDirectionsSection .directionsLocationGroup > span,
+.companyDirectionsSection .directionsLocationGroup a {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.companyDirectionsSection .directionsLocationGroup {
+  border-top-color: rgba(255, 255, 255, 0.13);
+}
+
+.companyDirectionsSection .directionsContactRows {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.companyDirectionsSection .directionsContactRows span:nth-child(odd) {
+  color: #ffffff;
+}
+
+.companyDirectionsSection .directionsExternalLinks .button {
+  padding: 0 14px;
+  border: 1px solid rgba(0, 166, 223, 0.58);
+  color: #ffffff;
+}
+
+.companyDirectionsSection .directionsExternalLinks .button:hover,
+.companyDirectionsSection .directionsExternalLinks .button:focus-visible {
+  background: var(--sh-cyan);
+  color: #07131d;
+  text-decoration: none;
+}
+
+.companyDirectionsSection .directionsMapCard {
+  padding: clamp(18px, 2.4vw, 30px);
+}
+
+.companyDirectionsSection .directionsMapIframe {
+  height: clamp(340px, 34vw, 520px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  filter: grayscale(0.2) contrast(1.04) brightness(0.92);
+}
+
+.companyDirectionsSection .directionsMapTab {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.companyDirectionsSection .directionsMapTab.isActive {
+  color: var(--sh-cyan);
 }
 
 /* SHINHOTEK product index/detail reference layout */
@@ -11438,6 +11465,405 @@ body {
 
   .productDetailPage .productDetailHeroInner {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Dark product index and manufacturer category pages */
+.productsPage {
+  background: #101214;
+}
+
+.productsPage .subpageContent {
+  padding-bottom: clamp(64px, 7vw, 110px);
+}
+
+.productsPage .productsShowcaseHead {
+  max-width: 980px;
+  margin-inline: auto;
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+  text-align: left;
+}
+
+.productsPage .productsShowcaseHead span,
+.productsPage .productMakerPageHead span {
+  color: #ff9d14;
+}
+
+.productsPage .productsShowcaseHead h2,
+.productsPage .productMakerPageHead h2 {
+  color: #ffffff;
+}
+
+.productsPage .productsShowcaseHead p,
+.productsPage .productMakerPageHead p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.productsPage .productsShowcase {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  gap: 0;
+  padding-bottom: clamp(50px, 6vw, 86px);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  background: #15191c;
+}
+
+.productsPage .productShowcaseRow {
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: #171b1e;
+  box-shadow: none;
+}
+
+.productsPage .productShowcaseMedia {
+  height: clamp(175px, 15vw, 240px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #22272a;
+}
+
+.productsPage .productShowcaseImage {
+  filter: saturate(0.96) contrast(1.05);
+}
+
+.productsPage .productShowcaseBody {
+  min-height: 168px;
+  padding: 22px 22px 0;
+  background: #171b1e;
+}
+
+.productsPage .productShowcaseTitle {
+  color: #ffffff;
+  text-align: left;
+}
+
+.productsPage .productShowcaseText {
+  color: rgba(255, 255, 255, 0.68);
+  text-align: left;
+}
+
+.productsPage .productShowcaseTags {
+  justify-content: flex-start;
+}
+
+.productsPage .productShowcaseTags li {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: #202529;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.productsPage .productShowcaseMore {
+  background: #ff9d14;
+  color: #101214;
+}
+
+.productsPage .productShowcaseMore:hover,
+.productsPage .productShowcaseMore:focus-visible {
+  background: #ffb34a;
+}
+
+.productCategoryPage {
+  background: #101214;
+}
+
+.productCategoryPage .productMakerPageHead {
+  margin-inline: auto;
+  text-align: left;
+}
+
+.productCategoryPage .productMakerPageHead strong {
+  border-top-color: #ff9d14;
+  color: #ff9d14;
+}
+
+.productCategoryPage .productMakerGrid {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  background: #15191c;
+}
+
+.productCategoryPage .productMakerCard {
+  min-height: 226px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: #171b1e;
+  color: #ffffff;
+}
+
+.productCategoryPage .productMakerCard:hover,
+.productCategoryPage .productMakerCard:focus-visible {
+  background: #20272c;
+  box-shadow: inset 0 4px 0 #ff9d14;
+}
+
+.productCategoryPage .productMakerLogo {
+  height: 86px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.productCategoryPage .productMakerLogo img {
+  object-position: center center;
+}
+
+.productCategoryPage .productMakerCard strong {
+  color: #ffffff;
+}
+
+.productCategoryPage .productMakerCard em {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.productCategoryPage .productMakerSupport {
+  width: min(100%, 1040px);
+  margin-inline: auto;
+  border-color: rgba(255, 255, 255, 0.14);
+  background: #171b1e;
+}
+
+.productCategoryPage .productMakerSupport span {
+  color: #ff9d14;
+}
+
+.productCategoryPage .productMakerSupport p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.productCategoryPage .productMakerSupport a {
+  border-color: #ff9d14;
+  color: #ff9d14;
+}
+
+.productCategoryPage .productMakerSupport a:hover,
+.productCategoryPage .productMakerSupport a:focus-visible {
+  background: #ff9d14;
+  color: #101214;
+}
+
+/* SHINHOTEK project page */
+.projectsPage {
+  background: #101214;
+}
+
+.projectsBody {
+  padding: clamp(58px, 7vw, 108px) 0 clamp(78px, 8vw, 128px);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(0, 166, 223, 0.12), transparent 34%),
+    linear-gradient(180deg, #101214 0%, #0a1118 100%);
+}
+
+.projectIntroPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.82fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: stretch;
+  padding-bottom: clamp(42px, 5vw, 72px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.projectIntroCopy {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+}
+
+.projectIntroCopy span,
+.projectSectionHead span,
+.projectContactBand span {
+  color: var(--sh-cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.projectIntroCopy h2,
+.projectSectionHead h2,
+.projectContactBand h2 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.projectIntroCopy h2 {
+  max-width: 760px;
+  font-size: clamp(32px, 4vw, 60px);
+}
+
+.projectIntroCopy p {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.78;
+}
+
+.projectIntroVisual {
+  position: relative;
+  min-height: clamp(280px, 30vw, 440px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #151b20;
+}
+
+.projectIntroVisual img {
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.05) brightness(0.92);
+}
+
+.projectFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(28px, 4vw, 50px);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.projectFeatureItem {
+  display: grid;
+  gap: 12px;
+  min-height: 132px;
+  padding: clamp(22px, 2.4vw, 34px);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: #15191c;
+}
+
+.projectFeatureItem span {
+  color: #ff9d14;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.projectFeatureItem strong {
+  color: #ffffff;
+  font-size: clamp(16px, 1.35vw, 21px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.projectModuleSection {
+  display: grid;
+  gap: clamp(24px, 3vw, 38px);
+  margin-top: clamp(54px, 7vw, 96px);
+}
+
+.projectSectionHead {
+  display: grid;
+  gap: 10px;
+}
+
+.projectSectionHead h2 {
+  font-size: clamp(28px, 3.2vw, 48px);
+}
+
+.projectModuleGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.projectModuleCard {
+  display: grid;
+  align-content: start;
+  min-height: 100%;
+  background: #171b1e;
+}
+
+.projectModuleMedia {
+  position: relative;
+  min-height: clamp(150px, 15vw, 220px);
+  background: #ffffff;
+}
+
+.projectModuleMedia img {
+  object-fit: contain;
+  padding: 24px;
+}
+
+.projectModuleCopy {
+  display: grid;
+  gap: 10px;
+  padding: clamp(20px, 2.2vw, 28px);
+}
+
+.projectModuleCopy h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(17px, 1.45vw, 22px);
+  line-height: 1.28;
+}
+
+.projectModuleCopy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.projectContactBand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: clamp(54px, 7vw, 96px);
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #15191c;
+}
+
+.projectContactBand div {
+  display: grid;
+  gap: 10px;
+}
+
+.projectContactBand h2 {
+  font-size: clamp(24px, 2.6vw, 40px);
+}
+
+.projectContactBand a {
+  flex: 0 0 auto;
+  padding: 13px 20px;
+  border: 1px solid #ff9d14;
+  color: #ff9d14;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.projectContactBand a:hover,
+.projectContactBand a:focus-visible {
+  background: #ff9d14;
+  color: #101214;
+}
+
+@media (max-width: 1040px) {
+  .projectIntroPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .projectFeatureGrid,
+  .projectModuleGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .projectFeatureGrid,
+  .projectModuleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectContactBand {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

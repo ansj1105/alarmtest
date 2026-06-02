@@ -27,7 +27,7 @@ const makers = [
   { name: "Cailabs", logoUrl: "/makers/cailabs.png", href: "https://www.cailabs.com/" },
   { name: "PowerPhotonic", logoUrl: "/makers/powerphotonic.png", href: "https://www.powerphotonic.com/" },
   { name: "Optoman", logoUrl: "/makers/optoman.png", href: "https://www.optoman.com/" },
-  { name: "ULO Optics", logoUrl: "/makers/ulo-optics.png", href: "https://www.ulooptics.com/" },
+  { name: "ULO Optics", logoUrl: "/makers/ulo-optics-black.jpg", href: "https://www.ulooptics.com/" },
   { name: "Zenops", logoUrl: "/makers/zenops.png", href: "https://zenops.co.kr/default/main/main.php" },
   { name: "Photonic Tools", logoUrl: "/makers/photonic-tools.png", href: "https://www.photonic-tools.de/" },
   { name: "MLOptic", logoUrl: "/makers/mloptic.png", href: "https://www.mloptic.com/" },

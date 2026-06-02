@@ -216,30 +216,21 @@ export function CompanyCeoVisionSections({
 
 export function CompanyPartnersSection({ locale, partners }: { locale: Locale; partners: CompanyPartnerItem[] }) {
   const isKo = locale === "ko";
-  const categories = isKo
-    ? ["레이저 측정", "광학 측정", "정밀 광학 기계 시스템", "레이저", "기타 제품"]
-    : ["Laser Metrology", "Optical Metrology", "Precision Optics", "Laser", "Other Products"];
 
   return (
     <section className="companyPartnerSection">
       <div className="container">
         <div className="companyPartnerSurface">
-          <div className="companyPartnerTopBar">
-            <div className="companyPartnerBrand">
-              <span className="companyPartnerCube" aria-hidden="true" />
-              <strong>SHINHOTEK</strong>
-              <small>partners</small>
-            </div>
-            <nav className="companyPartnerCategoryNav" aria-label={isKo ? "파트너 분야" : "Partner categories"}>
-              {categories.map((category) => (
-                <span key={category}>{category}</span>
-              ))}
-            </nav>
-            <div className="companyPartnerFollow">
-              <strong>{isKo ? "우리를 팔로우하세요" : "Follow us"}</strong>
-              <span className="companyPartnerQr">QR</span>
-            </div>
+          <div className="companyPartnerIntroBlock">
+            <span>{isKo ? "PARTNER NETWORK" : "PARTNER NETWORK"}</span>
+            <h2>{isKo ? "파트너사 소개" : "Partner Network"}</h2>
+            <p>
+              {isKo
+                ? "신호텍은 레이저, 광학, 계측 및 정밀 시스템 분야의 글로벌 제조사들과 함께 고객 공정에 적합한 제품과 기술 솔루션을 제공합니다."
+                : "SHINHOTEK works with global manufacturers in lasers, optics, metrology, and precision systems to provide products and technical solutions suited to customer processes."}
+            </p>
           </div>
+          <div className="companyPartnerDivider" aria-hidden="true" />
           <div className="companyPartnerLogoWall" aria-label={isKo ? "파트너 로고 목록" : "Partner logo list"}>
             {partners.map((partner) => (
               <a
@@ -258,14 +249,6 @@ export function CompanyPartnersSection({ locale, partners }: { locale: Locale; p
               </a>
             ))}
           </div>
-          <div className="companyPartnerSocialRow" aria-hidden="true">
-            <span>f</span>
-            <span>in</span>
-            <span>yt</span>
-          </div>
-          <p className="companyPartnerCert">
-            {isKo ? "SHINHOTEK 파트너 네트워크와 제품 카테고리는 관리자 페이지에서 관리됩니다." : "Partner network and product categories are managed by SHINHOTEK."}
-          </p>
         </div>
       </div>
     </section>

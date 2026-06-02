@@ -65,6 +65,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       ] },
       { label: "솔루션소개", href: "/applications" },
       { label: "제품", href: "/products", children: productChildrenKo },
+      { label: "프로젝트", href: "/projects" },
       { label: "고객지원", href: "/contact", children: [
         { label: "고객지원", href: "/contact" },
         { label: "견적문의", href: "/contact/quote" },
@@ -130,6 +131,7 @@ Components` },
       ] },
       { label: "Solution", href: "/applications" },
       { label: "Product", href: "/products", children: productChildrenEn },
+      { label: "Project", href: "/projects" },
       { label: "Contact", href: "/contact", children: [
         { label: "Support", href: "/contact" },
         { label: "Quote", href: "/contact/quote" },

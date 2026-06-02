@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CompanyCeoVisionSections, CompanyHeroBand } from "@/components/company-page-sections";
-import { getCompanyContent, getPageHeroConfig } from "@/lib/content";
+import { getCompanyContent } from "@/lib/content";
 import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/lib/site";
 
@@ -31,14 +31,11 @@ export default async function CompanyCeoVisionPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
-  const [companyContent, companyHeroConfig] = await Promise.all([
-    getCompanyContent(),
-    getPageHeroConfig("company"),
-  ]);
+  const companyContent = await getCompanyContent();
 
   return (
     <div className="companyPage">
-      <CompanyHeroBand imageUrl={companyHeroConfig?.backgroundImageUrl} />
+      <CompanyHeroBand imageUrl="/company/history-bg.png" />
       <CompanyCeoVisionSections locale={locale} companyContent={companyContent} />
     </div>
   );
