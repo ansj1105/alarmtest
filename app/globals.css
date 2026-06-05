@@ -12278,7 +12278,7 @@ body {
   min-width: 176px;
   height: 66px;
   padding: 12px 18px;
-  border: 1px solid rgba(17, 24, 39, 0.1);
+  border: 0;
   background: #ffffff;
   text-decoration: none;
 }
@@ -12292,7 +12292,6 @@ body {
 
 .makerLogoBox:focus-visible,
 .makerLogoBox:hover {
-  border-color: rgba(0, 95, 127, 0.28);
   background: #f8fbfd;
 }
 
@@ -12974,7 +12973,7 @@ body {
   min-width: 124px;
   height: 40px;
   padding: 0 18px;
-  border: 1px solid rgba(17, 24, 39, 0.1);
+  border: 0;
   background: #ffffff;
   color: #17375e;
   font-size: 15px;
