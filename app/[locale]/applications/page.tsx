@@ -150,7 +150,6 @@ export default async function ApplicationsPage({
       <div className="solutionPageBody">
         <div className="container solutionPageShell">
           <section className="solutionPageIntro">
-            <span>SHINHOTEK SOLUTION</span>
             <h2>{locale === "ko" ? "공정 조건에 맞춘 설계형 솔루션" : "Engineering-led solutions for process requirements"}</h2>
             <p>
               {locale === "ko"

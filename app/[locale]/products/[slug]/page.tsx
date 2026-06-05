@@ -84,7 +84,6 @@ export default async function ProductDetailPage({
 
       <div className="container subpageContent">
         <section className="productMakerPageHead">
-          <span>PRODUCT LINE UP</span>
           <h2>{localizedProductName}</h2>
           <p>{localizedSummary}</p>
           {referenceMeta ? <strong>{locale === "ko" ? referenceMeta.labelKo : referenceMeta.labelEn}</strong> : null}

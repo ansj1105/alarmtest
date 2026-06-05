@@ -10466,6 +10466,8 @@ body {
   grid-template-columns: minmax(180px, 0.34fr) minmax(0, 0.9fr);
   gap: clamp(22px, 4vw, 58px);
   align-items: end;
+  padding-top: clamp(10px, 1.8vw, 24px);
+  padding-inline: clamp(16px, 2.6vw, 32px);
   padding-bottom: clamp(24px, 3vw, 40px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
@@ -10622,6 +10624,7 @@ body {
   display: grid;
   gap: 12px;
   max-width: 880px;
+  padding-inline: clamp(16px, 2.6vw, 32px);
   margin-bottom: clamp(30px, 4vw, 48px);
 }
 
