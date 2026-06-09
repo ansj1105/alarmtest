@@ -25,6 +25,7 @@ services:
     volumes:
       - resource_uploads:/app/public/uploads/resources
       - product_document_uploads:/app/public/uploads/product-documents
+      - admin_image_uploads:/app/public/uploads/images
     ports:
       - "3000:3000"
 
@@ -44,3 +45,4 @@ volumes:
   postgres_data:
   resource_uploads:
   product_document_uploads:
+  admin_image_uploads:
