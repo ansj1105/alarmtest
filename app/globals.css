@@ -7081,7 +7081,25 @@ td {
   }
 
   .localeSwitch {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 0 11px;
+    gap: 6px;
+  }
+
+  .localeSwitchValue {
     display: none;
+  }
+
+  .localeSwitch::after {
+    content: attr(data-locale);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .localeDropdown {
+    right: -52px;
   }
 
   .mobileMenuButton {
@@ -10030,7 +10048,25 @@ body {
   }
 
   .localeSwitch {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 0 11px;
+    gap: 6px;
+  }
+
+  .localeSwitchValue {
     display: none;
+  }
+
+  .localeSwitch::after {
+    content: attr(data-locale);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .localeDropdown {
+    right: -52px;
   }
 
   .mobileMenuButton {

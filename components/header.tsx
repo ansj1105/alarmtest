@@ -137,6 +137,7 @@ export function Header({ locale, productLinks }: HeaderProps) {
                 className="localeSwitch"
                 aria-expanded={localeOpen}
                 aria-label="Select language"
+                data-locale={locale === "ko" ? "KR" : "EN"}
                 onClick={() => setLocaleOpen((value) => !value)}
               >
                 <span className="localeGlobe" aria-hidden="true">
