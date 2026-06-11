@@ -87,6 +87,9 @@ export function HomeSolutionSection({
             <div className="homeSolutionList">
               {featuredItems.map((item) => (
                 <Link className="homeSolutionListItem" key={item.slug} href={`/${locale}/applications#${item.slug}`}>
+                  <span className="homeSolutionListIcon" aria-hidden="true">
+                    ▸
+                  </span>
                   <span>
                     <strong>{isKo ? item.titleKo : item.titleEn}</strong>
                     <em>{isKo ? item.summaryKo : item.summaryEn}</em>
