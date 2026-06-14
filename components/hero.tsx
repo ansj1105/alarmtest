@@ -1,10 +1,7 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
-import { getDictionary } from "@/lib/dictionaries";
-import { resourceBodyToHtml } from "@/lib/resource-rich-text";
 import type { Locale } from "@/lib/site";
-import type { CSSProperties } from "react";
 
 type HeroProps = {
   locale: Locale;
@@ -13,103 +10,161 @@ type HeroProps = {
   description?: string | null;
 };
 
-export function Hero({ locale, heroImageUrl, title, description }: HeroProps) {
-  const dict = getDictionary(locale);
-  const imageUrl =
-    !heroImageUrl ||
-    heroImageUrl === "/hero-lab-bg.avif" ||
-    heroImageUrl === "/hero-lab-bg.png" ||
-    heroImageUrl === "/hero-main-camera-hud.png" ||
-    heroImageUrl === "/hero-main-laser.png" ||
-    heroImageUrl === "/hero-main-camera-globe.png"
-      ? "/hero-main-laser.png"
-      : heroImageUrl;
-  const titleHtml = resourceBodyToHtml(title || dict.hero.mainTitle);
-  const descriptionHtml = resourceBodyToHtml(description || dict.hero.mainLead);
-  const heroSpecIcons = [
-    "/newhero/icon1-cutout.png",
-    "/newhero/icon2-cutout.png",
-    "/newhero/icon3-cutout.png",
-    "/newhero/icon4-cutout.png",
-  ];
+const heroContent = {
+  ko: {
+    badge: "FULLY PASSIVE BEAM STABILIZATION",
+    titleMain: "Mode",
+    titleAccent: "Cleaner",
+    subTitle: "빛을 다듬다 – 완전 수동형 빔 안정화 솔루션",
+    body:
+      "입력 빔의 왜곡, 떨림, 정렬 오차와 관계없이 별도 센서 제어 없이 순수한 가우시안 빔으로 정리시키는 수동형 모드 클리너.",
+    features: [
+      {
+        title: "완전 수동형",
+        body: "센서·액추에이터 제어 없이 지연 없이 즉각 안정화",
+      },
+      {
+        title: "깨끗한 가우시안 빔",
+        body: "입력 왜곡과 무관하게 가우시안 모드만 투과",
+      },
+      {
+        title: "3D 안정성",
+        body: "틸트·시프트·디포커스에도 위치 각도·빔 품질 유지",
+      },
+      {
+        title: "산업용 USP 호환",
+        body: "30 fs 초고속 펄스 고출력 산업 가공 대응",
+      },
+    ],
+    beforeLabel: "Before Mode Cleaner",
+    afterLabel: "After Mode Cleaner",
+    metricBefore: { label: "입력", value: 'M² = 1.56' },
+    metricAfter: { label: "출력", value: 'M² = 1.08' },
+    detailCta: "제품 자세히 보기",
+    inquiryCta: "기술 문의하기",
+  },
+  en: {
+    badge: "FULLY PASSIVE BEAM STABILIZATION",
+    titleMain: "Mode",
+    titleAccent: "Cleaner",
+    subTitle: "Refining light – a fully passive beam stabilization solution",
+    body:
+      "A passive mode cleaner that converts distorted, unstable, or misaligned input beams into a clean Gaussian beam without sensor feedback or active actuator control.",
+    features: [
+      {
+        title: "Fully Passive",
+        body: "Immediate stabilization without sensor or actuator control loops",
+      },
+      {
+        title: "Clean Gaussian Beam",
+        body: "Only the Gaussian mode passes through regardless of input distortion",
+      },
+      {
+        title: "3D Stability",
+        body: "Beam position, angle, and quality remain stable under tilt, shift, and defocus",
+      },
+      {
+        title: "USP Ready",
+        body: "Compatible with ultrafast pulses and high-power industrial processing",
+      },
+    ],
+    beforeLabel: "Before Mode Cleaner",
+    afterLabel: "After Mode Cleaner",
+    metricBefore: { label: "Input", value: 'M² = 1.56' },
+    metricAfter: { label: "Output", value: 'M² = 1.08' },
+    detailCta: "View Product",
+    inquiryCta: "Contact Us",
+  },
+} as const;
+
+export function Hero({ locale }: HeroProps) {
+  const content = heroContent[locale];
 
   return (
-    <section
-      className="heroSection"
-      style={{ ["--hero-image" as string]: `url("${imageUrl}")` } as CSSProperties}
-    >
+    <section className="heroSection">
       <div className="heroBackdrop" aria-hidden="true">
         <div className="heroBackdropGrid" />
-        <div className="heroTechOrbit">
-          <svg className="heroTechWheel" viewBox="0 0 652 652">
-            <g id="circle1">
-              <path
-                fill="none"
-                stroke="#02AEEF"
-                strokeDasharray="30,30,4,10"
-                d="M325.8,0c179.9,0,325.8,146,325.8,326 S505.7,652,325.8,652S0,506,0,326S145.9,0,325.8,0z"
-              />
-            </g>
-            <g id="circle2">
-              <path
-                fill="none"
-                stroke="#02AEEF"
-                d="M558.2,232.9c11.3,28.6,17.6,59.8,17.6,92.4 c0,138.5-112.2,250.8-250.7,250.8c-49.3,0-95.3-14.2-134.1-38.8"
-              />
-              <path
-                fill="none"
-                stroke="#02AEEF"
-                strokeWidth="3"
-                d="M264.4,81.9c24.7-6.2,50.8-8.6,77.5-6.8 c55.2,3.7,105,25,144.2,58"
-              />
-              <path
-                fill="none"
-                stroke="#02AEEF"
-                d="M191.2,113.3c43.3-27.5,95.5-41.9,150.7-38.2 c55.2,3.7,105,25,144.2,58"
-              />
-              <path fill="none" stroke="#02AEEF" d="M82.7,394.3C68.6,345,69.5,290.8,88.7,239" />
-            </g>
-            <g id="circle3">
-              <circle
-                fill="none"
-                stroke="#02AEEF"
-                strokeWidth="20"
-                strokeDasharray="0.7,8"
-                cx="324.5"
-                cy="324.7"
-                r="168.9"
-              />
-            </g>
-            <g id="center">
-              <circle fill="none" stroke="#02AEEF" cx="325" cy="325" r="40.2" />
-              <circle fill="none" stroke="#02AEEF" cx="324.5" cy="324.5" r="64.5" />
-              <path fill="none" stroke="#02AEEF" strokeWidth="3" d="M558.2,232.9" />
-              <path fill="none" stroke="#02AEEF" d="M119.5,181.2" />
-            </g>
-          </svg>
-        </div>
+        <div className="heroBackdropGlow heroBackdropGlowWarm" />
+        <div className="heroBackdropGlow heroBackdropGlowCool" />
+        <div className="heroBackdropRing" />
       </div>
+
       <div className="container heroInner">
         <div className="heroCopy">
-          <div className="heroMessagePanel heroMessagePanelPrimary" dangerouslySetInnerHTML={{ __html: titleHtml }} />
-          <div className="heroBody">
-            <div className="heroMessagePanel heroMessagePanelSecondary" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
-            {/*
-            <div className="heroRelationBlock">
-              <span className="heroRelationLabel">{dict.hero.relationLabel}</span>
-              <p className="heroRelationText">{dict.hero.relationBody}</p>
-            </div>
-            */}
+          <span className="heroModeBadge">{content.badge}</span>
+
+          <div className="heroModeHeading" aria-label="Mode Cleaner">
+            <span className="heroModeHeadingMain">{content.titleMain}</span>
+            <span className="heroModeHeadingAccent">{content.titleAccent}</span>
           </div>
-          <Link href={`/${locale}/products/laser`} className="heroLearnMore">
-            <span>CONTACT US</span>
-          </Link>
+
+          <p className="heroModeSubTitle">{content.subTitle}</p>
+          <p className="heroModeBody">{content.body}</p>
+
+          <div className="heroModeFeatureGrid">
+            {content.features.map((feature) => (
+              <div key={feature.title} className="heroModeFeatureCard">
+                <span className="heroModeFeatureIcon" aria-hidden="true">
+                  ✦
+                </span>
+                <div className="heroModeFeatureCopy">
+                  <strong>{feature.title}</strong>
+                  <span>{feature.body}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="heroModeActions">
+            <Link href={`/${locale}/products/optical-solution`} className="heroModePrimaryCta">
+              {content.detailCta}
+            </Link>
+            <Link href={`/${locale}/contact/quote`} className="heroModeSecondaryCta">
+              {content.inquiryCta}
+            </Link>
+          </div>
         </div>
-        <div className="heroVisualPanel" aria-hidden="true">
-          <Image src="/hero-main-laser.png" alt="" width={420} height={420} priority />
+
+        <div className="heroModeVisual" aria-hidden="true">
+          <div className="heroModeComparison heroModeComparisonBefore">
+            <span className="heroModeComparisonLabel">{content.beforeLabel}</span>
+            <div className="heroModeComparisonFrame">
+              <Image src="/hero-mode-cleaner-before.png" alt="" width={260} height={260} className="heroModeComparisonImage" />
+            </div>
+          </div>
+
+          <div className="heroModeArrow">➜</div>
+
+          <div className="heroModeComparison heroModeComparisonAfter">
+            <span className="heroModeComparisonLabel">{content.afterLabel}</span>
+            <div className="heroModeComparisonFrame">
+              <Image src="/hero-mode-cleaner-after.png" alt="" width={240} height={240} className="heroModeComparisonImage" />
+            </div>
+          </div>
+
+          <div className="heroModeDeviceWrap">
+            <Image
+              src="/hero-mode-cleaner-device.png"
+              alt=""
+              width={900}
+              height={635}
+              priority
+              className="heroModeDeviceImage"
+            />
+          </div>
+
+          <div className="heroModeMetricStack">
+            <div className="heroModeMetricCard">
+              <span>{content.metricBefore.label}</span>
+              <strong>{content.metricBefore.value}</strong>
+            </div>
+            <div className="heroModeMetricCard">
+              <span>{content.metricAfter.label}</span>
+              <strong>{content.metricAfter.value}</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
