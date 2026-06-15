@@ -37,12 +37,15 @@ export function HomeSolutionSection({
   manufacturerLogos: ManufacturerLogoItem[];
 }) {
   const isKo = locale === "ko";
-  const leadHtml = resourceBodyToHtml(
-    lead ||
-      (isKo
-        ? "제품 판매에 머물지 않고 광학 솔루션, 광학 설계, SW 설계까지 연결하는 산업용 레이저·광학 파트너를 지향합니다."
-        : "Beyond product supply, Shinhotek connects selection, engineering review, and application support for industrial laser and optical systems."),
-  );
+  const introBody = isKo
+    ? `신호텍은 2007년 설립 이래 레이저 및 광학 솔루션 분야에서 차별화된 기술력과 빠른 실행력을 바탕으로 성장해온 전문 기업입니다. 단순한 부품 공급을 넘어 설계, 시뮬레이션, 정밀 제작 및 제어 소프트웨어까지 아우르는 ‘토털 옵티컬 솔루션’을 제공하는 목표를 가지고 고출력 레이저 광학계, Beam Profiler, F-Theta Lens, Beam Monitoring System, Bessel Beam Generator 등 고정밀 광학 솔루션을 자체 개발하고 있습니다. 이러한 독자적인 기술 역량을 축적하며 산업용·반도체·디스플레이·자동차·국방 등 다양한 첨단 산업에 최적화된 솔루션을 제공하고 있습니다.
+
+특히 초고속 레이저 가공과 정밀 계측 분야에서 요구되는 안정성과 정밀도를 제어하는 빔프로파일러를 자체 개발한 LUMOSITY 소프트웨어와 하드웨어를 최초로 국산화 양산화하여 레이저 상태를 실시간으로 분석·모니터링할 수 있는 통합 솔루션을 제공하여 고객 공정의 생산성과 신뢰성을 동시에 향상시키고 있습니다.
+
+“First & Fast, Beyond Optics”라는 비전 아래, 신호텍은 창의적인 광학 기술과 민첩한 개발 역량으로 미래 레이저·광학 산업을 선도하는 글로벌 파트너로 도약하고 있습니다.`
+    : lead ||
+      "Beyond product supply, Shinhotek connects selection, engineering review, and application support for industrial laser and optical systems.";
+  const leadHtml = resourceBodyToHtml(introBody);
   const visibleSolutions = solutions.filter((item) => {
     const searchable = `${item.slug} ${item.titleKo} ${item.titleEn}`.toLowerCase();
     return (
@@ -66,26 +69,6 @@ export function HomeSolutionSection({
       imageUrl: fixedImageByIndex[index as keyof typeof fixedImageByIndex] ?? item.imageUrl,
     };
   });
-  const featuredItems = visibleSolutions
-    .filter((item) => {
-      const searchable = `${item.slug} ${item.titleKo} ${item.titleEn}`.toLowerCase();
-      return (
-        !searchable.includes("optical-design") &&
-        !searchable.includes("optical design") &&
-        !searchable.includes("광학 설계") &&
-        !searchable.includes("mechanical-design") &&
-        !searchable.includes("mechanical design") &&
-        !searchable.includes("기구설계") &&
-        !searchable.includes("기구 설계") &&
-        !searchable.includes("battery") &&
-        !searchable.includes("rechargeable-battery") &&
-        !searchable.includes("rechargeable battery") &&
-        !searchable.includes("이차전지") &&
-        !searchable.includes("display") &&
-        !searchable.includes("디스플레이")
-      );
-    })
-    .slice(0, 2);
 
   return (
     <>
@@ -110,23 +93,7 @@ export function HomeSolutionSection({
           </div>
 
           <div className="homeSolutionCopyPanel">
-            <div className="homeSolutionTitleBox">
-              <h2>{title || (isKo ? "SH Solution" : "SH Solution")}</h2>
-            </div>
             <div className="homeSolutionLead" dangerouslySetInnerHTML={{ __html: leadHtml }} />
-            <div className="homeSolutionList">
-              {featuredItems.map((item) => (
-                <Link className="homeSolutionListItem" key={item.slug} href={`/${locale}/applications#${item.slug}`}>
-                  <span className="homeSolutionListIcon" aria-hidden="true">
-                    ▸
-                  </span>
-                  <span>
-                    <strong>{isKo ? item.titleKo : item.titleEn}</strong>
-                    <em>{isKo ? item.summaryKo : item.summaryEn}</em>
-                  </span>
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
       </section>

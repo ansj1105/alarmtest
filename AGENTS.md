@@ -7,7 +7,7 @@ This repository is the SHINHOTEK website renewal project. It was scaffolded from
 ## Local / Remote
 
 - Local path: `C:\work\shinhotek`
-- GitHub: `https://github.com/ansj1105/shinhotek.git`
+- GitHub: `https://github.com/ansj1105/new_shinho.git`
 - Main branch: `main`
 - Production server: `13.124.221.242`
 - SSH key: `C:\work\shinotek.pem`
@@ -20,12 +20,19 @@ Use Docker Compose on the server:
 ```bash
 cd /var/www/shinhotek
 git pull origin main
-sudo docker compose up -d --build db web
+sudo docker builder prune -af
+sudo docker image prune -af
+sudo docker compose up -d --build db web nginx
 sudo docker compose ps
 curl -I http://127.0.0.1/ko
+curl -I http://127.0.0.1:3000/ko
 ```
 
-Current server deployment uses `docker-compose.override.yml` to map `web` directly to `80:3000`. The nginx/SSL service is not active until certificates are installed.
+- `git pull origin main` on the server is the baseline deploy rule.
+- Archive/scp deployment is exception-only, for cases where `git pull` is genuinely blocked by auth or remote state.
+- Do not switch to `C:\work\rumos` or `/var/www/rumos` when the task is SHINHOTEK. Keep repo and server context strictly separated.
+- Current production reverse proxy is HTTP-first nginx on port `80`, proxying to `web:3000`.
+- The nginx container may expose `443`, but certificate-based HTTPS should be considered inactive unless cert files are explicitly installed and verified.
 
 ## Admin / CMS Priority
 
