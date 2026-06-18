@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Beam Delivery parts</title>
+  <desc id="desc">Beam Delivery parts wordmark</desc>
+  <rect width="640" height="320" rx="20" fill="#f3f5f8"/>
+  <g fill="none" stroke="#1f2937" stroke-width="10" stroke-linecap="round">
+    <path d="M96 108h124"/>
+    <path d="M420 108h124"/>
+    <path d="M96 212h124"/>
+    <path d="M420 212h124"/>
+  </g>
+  <g fill="#111827" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="320" y="146" font-size="54" font-weight="700">Beam Delivery</text>
+    <text x="320" y="214" font-size="46" font-weight="600" letter-spacing="3">PARTS</text>
+  </g>
+</svg>
