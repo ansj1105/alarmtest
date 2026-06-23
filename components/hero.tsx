@@ -81,7 +81,7 @@ const heroContent = {
 } as const;
 
 export function Hero({ locale }: HeroProps) {
-  const content = heroContent[locale];
+  const content = heroContent[locale] ?? heroContent.ko;
 
   return (
     <section className="heroSection">
