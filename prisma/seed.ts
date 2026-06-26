@@ -95,6 +95,19 @@ async function main() {
     }
   }
 
+  const beamDeliveryProduct = await prisma.product.findUnique({ where: { slug: "beam-delivery" } });
+
+  if (beamDeliveryProduct) {
+    await prisma.productMaker.updateMany({
+      where: {
+        productId: beamDeliveryProduct.id,
+        slug: "powerphotonic",
+      },
+      data: {
+        published: false,
+      },
+    });
+  }
   for (const resource of defaultResources) {
     await prisma.resource.upsert({
       where: { slug: resource.slug },

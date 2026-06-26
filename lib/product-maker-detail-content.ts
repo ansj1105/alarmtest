@@ -220,13 +220,13 @@ const detailContent: Record<string, MakerDetailContent> = {
   "optical-solution/powerphotonic": {
     labelKo: "Optical Solution",
     labelEn: "Optical Solution",
-    headlineKo: "PowerPhotonic 자유형상 광학",
+    headlineKo: "PowerPhotonic 자유형상 광학 제품 구성",
     headlineEn: "PowerPhotonic freeform optics",
-    leadKo: "자유형상 광학과 마이크로 옵틱 구성을 제품 이미지와 사양 중심으로 검토합니다.",
+    leadKo: "자유형상 광학과 마이크로 옵틱 제품군을 이미지, 사양, 공정 조건 중심으로 검토합니다.",
     leadEn: "Freeform and micro-optic configurations are reviewed with product images and specifications.",
     heroImage: "/maker-detail/powerphotonic-1.png",
     blocks: [
-      block("자유형상 광학", "Freeform optics", "약 20종 수준의 제품군을 공정 목적과 광학 조건에 맞춰 검토합니다.", "Product families are reviewed against process purpose and optical conditions.", "/maker-detail/powerphotonic-1.png"),
+      block("자유형상 광학 제품군", "Freeform optics lineup", "다양한 자유형상 광학 제품을 공정 목적과 광학 조건에 맞춰 검토합니다.", "Product families are reviewed against process purpose and optical conditions.", "/maker-detail/powerphotonic-1.png"),
       block("빔 딜리버리 적용", "Beam delivery application", "빔 전달과 형상 제어가 필요한 장비 구성에 적용성을 확인합니다.", "Applicability is checked for equipment requiring beam delivery and profile control."),
     ],
     notesKo: ["자유형상 광학", "마이크로 옵틱", "제품군 사양 검토"],
@@ -235,9 +235,9 @@ const detailContent: Record<string, MakerDetailContent> = {
   "optical-solution/cailabs": {
     labelKo: "Optical Solution",
     labelEn: "Optical Solution",
-    headlineKo: "빛의 미래를 형성하는 광학 변환 솔루션",
+    headlineKo: "Cailabs 광학 변환 솔루션",
     headlineEn: "Optical transformation solutions shaping the future of light",
-    leadKo: "Cailabs 광학 변환 기술을 기반으로 빔 전송, 형상 제어, 모드 변환 조건을 검토합니다.",
+    leadKo: "빛의 미래를 형성하는 Cailabs 광학 변환 기술을 기반으로 빔 전송, 형상 제어, 모드 변환 조건을 검토합니다.",
     leadEn: "Cailabs optical transformation technology is reviewed for beam delivery, beam shaping, and mode conversion.",
     blocks: [
       block("모드 변환", "Mode conversion", "입력 빔 조건과 출력 형상 요구를 기준으로 광학 변환 적용성을 확인합니다.", "Optical transformation applicability is checked from input beam conditions and output requirements."),
@@ -249,9 +249,9 @@ const detailContent: Record<string, MakerDetailContent> = {
   "optical-solution/mloptic": {
     labelKo: "Optical Solution",
     labelEn: "Optical Solution",
-    headlineKo: "MLOptic 정밀 광학 모듈",
+    headlineKo: "MLOptic 정밀 광학 제품 구성",
     headlineEn: "MLOptic precision optical modules",
-    leadKo: "광자를 통한 혁신이라는 방향에 맞춰 정밀 광학 모듈과 제품 사양을 검토합니다.",
+    leadKo: "광자를 통한 혁신이라는 방향에 맞춰 정밀 광학 모듈, 제품 설명, 주요 사양을 검토합니다.",
     leadEn: "Precision optical modules and specifications are reviewed under the photon innovation concept.",
     heroImage: "/maker-detail/mloptic-1.png",
     blocks: [
@@ -264,9 +264,9 @@ const detailContent: Record<string, MakerDetailContent> = {
   "coating-solution/optoman": {
     labelKo: "Coating Solution",
     labelEn: "Coating Solution",
-    headlineKo: "Optoman 레이저 옵틱 코팅",
+    headlineKo: "Optoman 레이저 옵틱 코팅 제품 구성",
     headlineEn: "Optoman laser optics coating",
-    leadKo: "레이저 옵틱 코팅 제품군을 파장, 손상 임계값, 공정 환경 기준으로 검토합니다.",
+    leadKo: "레이저 옵틱 코팅 컬렉션을 파장, 손상 임계값, 공정 환경 기준으로 검토합니다.",
     leadEn: "Laser optics coatings are reviewed by wavelength, damage threshold, and process environment.",
     heroImage: "/maker-detail/optoman-1.png",
     blocks: [
@@ -279,7 +279,7 @@ const detailContent: Record<string, MakerDetailContent> = {
   "coating-solution/ulo-optics": {
     labelKo: "Coating Solution",
     labelEn: "Coating Solution",
-    headlineKo: "ULO 레이저 보호 윈도우",
+    headlineKo: "ULO 레이저 보호 윈도우 제품 구성",
     headlineEn: "ULO laser protection windows",
     leadKo: "레이저 보호 윈도우와 산업용 광학 부품을 장비 조건에 맞춰 검토합니다.",
     leadEn: "Laser protection windows and industrial optical parts are reviewed against equipment conditions.",
@@ -291,12 +291,27 @@ const detailContent: Record<string, MakerDetailContent> = {
     notesKo: ["보호 윈도우", "광학 부품", "장비 적용성"],
     notesEn: ["Protection windows", "Optical parts", "Equipment applicability"],
   },
+  "coating-solution/photonic-tools": {
+    labelKo: "Coating Solution",
+    labelEn: "Coating Solution",
+    headlineKo: "Photonic Tools 산업용 초고속 빔 전달",
+    headlineEn: "Photonic Tools industrial ultrafast beam delivery",
+    leadKo: "산업용 초고속 레이저 공정에 필요한 빔 전달 구성과 광학 부품 적용 조건을 검토합니다.",
+    leadEn: "Beam delivery configurations and optical component requirements are reviewed for industrial ultrafast laser processes.",
+    heroImage: "/maker-detail/photonic-tools-1.png",
+    blocks: [
+      block("초고속 빔 전달", "Ultrafast beam delivery", "초고속 레이저 기반 장비에서 요구되는 빔 전달 안정성과 장착 조건을 확인합니다.", "Beam delivery stability and mounting requirements are checked for ultrafast laser equipment.", "/maker-detail/photonic-tools-1.png"),
+      block("산업용 적용 검토", "Industrial application review", "광학 경로, 출력 조건, 공간 제약을 함께 검토해 장비 적용성을 높입니다.", "Optical path, output conditions, and space constraints are reviewed together for practical equipment integration."),
+    ],
+    notesKo: ["초고속 빔 전달", "광학 부품", "장비 적용성 검토"],
+    notesEn: ["Ultrafast beam delivery", "Optical components", "Equipment applicability review"],
+  },
   "coating-solution/zenops": {
     labelKo: "Coating Solution",
     labelEn: "Coating Solution",
-    headlineKo: "ZENOPS 광학 부품 및 코팅 대응",
+    headlineKo: "ZENOPS 광학 부품 및 코팅 제품 구성",
     headlineEn: "ZENOPS optical parts and coating support",
-    leadKo: "ZENOPS 제품군을 광학 부품, 코팅 조건, 장비 적용성 기준으로 검토합니다.",
+    leadKo: "ZENOPS 광학 부품과 코팅 제품군을 공정 조건, 코팅 사양, 장비 적용성 기준으로 검토합니다.",
     leadEn: "ZENOPS products are reviewed by optical part, coating condition, and equipment applicability.",
     heroImage: "/maker-detail/zenops-1.png",
     blocks: [
@@ -309,7 +324,7 @@ const detailContent: Record<string, MakerDetailContent> = {
   "beam-delivery/powerphotonic": {
     labelKo: "Beam Delivery",
     labelEn: "Beam Delivery",
-    headlineKo: "PowerPhotonic 빔 딜리버리 광학",
+    headlineKo: "PowerPhotonic 빔 딜리버리 광학 구성",
     headlineEn: "PowerPhotonic beam delivery optics",
     leadKo: "빔 전달, 형상 제어, 자유형상 광학을 장비 구조에 맞춰 검토합니다.",
     leadEn: "Beam delivery, profile control, and freeform optics are reviewed for equipment architecture.",
@@ -324,9 +339,9 @@ const detailContent: Record<string, MakerDetailContent> = {
   "beam-delivery/beam-delivery-parts": {
     labelKo: "Beam Delivery",
     labelEn: "Beam Delivery",
-    headlineKo: "Beam Delivery Parts",
+    headlineKo: "Beam Delivery Parts 제품 구성",
     headlineEn: "Beam Delivery Parts",
-    leadKo: "빔 전달 구성에 필요한 렌즈, 윈도우, 마운트 등 부품을 장비 조건에 맞춰 검토합니다.",
+    leadKo: "빔 전달 구성에 필요한 렌즈, 윈도우, 마운트 등 부품을 장비 구조와 설치 조건에 맞춰 검토합니다.",
     leadEn: "Lenses, windows, mounts, and other beam delivery parts are reviewed against equipment conditions.",
     heroImage: "/makers/beam-delivery-parts.svg",
     blocks: [

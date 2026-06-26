@@ -68,19 +68,19 @@ export const productCategoryMakers: Record<string, ProductMaker[]> = {
     maker("LUMOS", "lumos", "/makers/lumos.png", "https://www.lumosity.co.kr/", "LUMOS", "LUMOS", "빔 프로파일링", "Beam profiling"),
   ],
   "optical-solution": [
-    maker("AdlOptica", "adloptica", "/makers/adloptica.webp", "https://www.adloptica.com/", null, null, "빔 쉐이핑", "Beam shaping"),
-    maker("Cailabs", "cailabs", "/makers/cailabs.png", "https://www.cailabs.com/", null, null, "광학 변환 솔루션", "Optical transformation solutions"),
-    maker("PowerPhotonic", "powerphotonic", "/makers/powerphotonic.png", "https://www.powerphotonic.com/", null, null, "자유형상 광학", "Freeform optics"),
-    maker("MLOptic", "mloptic", "/makers/mloptic.png", "https://www.mloptic.com/", null, null, "정밀 광학 모듈", "Precision optical modules"),
+    maker("AdlOptica", "adloptica", "/makers/adloptica.webp", "https://www.adloptica.com/", "Beam Shaping", "Beam Shaping", "빔 쉐이핑", "Beam shaping"),
+    maker("Cailabs", "cailabs", "/makers/cailabs.png", "https://www.cailabs.com/", "Optical Transformation", "Optical Transformation", "광학 변환 솔루션", "Optical transformation solutions"),
+    maker("PowerPhotonic", "powerphotonic", "/makers/powerphotonic.png", "https://www.powerphotonic.com/", "Freeform Optics", "Freeform Optics", "자유형상 광학", "Freeform optics"),
+    maker("MLOptic", "mloptic", "/makers/mloptic.png", "https://www.mloptic.com/", "Precision Optics", "Precision Optics", "정밀 광학 모듈", "Precision optical modules"),
   ],
   "coating-solution": [
-    maker("Optoman", "optoman", "/makers/optoman.png", "https://www.optoman.com/", null, null, "레이저 옵틱 코팅", "Laser optics coating"),
-    maker("ULO Optics", "ulo-optics", "/makers/ulo-optics.png", "https://www.ulooptics.com/", null, null, "광학 부품 및 코팅", "Optics and coating"),
-    maker("Zenops", "zenops", "/makers/zenops.png", "https://zenops.co.kr/default/main/main.php", null, null, "광학 부품 및 코팅 대응", "Optics and coating support"),
+    maker("Optoman", "optoman", "/makers/optoman.png", "https://www.optoman.com/", "Laser Optics Coating", "Laser Optics Coating", "레이저 옵틱 코팅", "Laser optics coating"),
+    maker("ULO Optics", "ulo-optics", "/makers/ulo-optics.png", "https://www.ulooptics.com/", "Laser Protection Windows", "Laser Protection Windows", "광학 부품 및 코팅", "Optics and coating"),
+    maker("Zenops", "zenops", "/makers/zenops.png", "https://zenops.co.kr/default/main/main.php", "Optical Coating", "Optical Coating", "광학 부품 및 코팅 대응", "Optics and coating support"),
+    maker("Photonic Tools", "photonic-tools", "/makers/photonic-tools.png", "https://www.photonic-tools.de/", "Industrial Ultrafast Beam Delivery", "Industrial Ultrafast Beam Delivery", "산업용 초고속 빔 전달", "Industrial ultrafast beam delivery"),
   ],
   "beam-delivery": [
-    maker("PowerPhotonic", "powerphotonic", "/makers/powerphotonic.png", "https://www.powerphotonic.com/", null, null, "빔 딜리버리 광학", "Beam delivery optics"),
-    maker("Beam Delivery parts", "beam-delivery-parts", "/makers/beam-delivery-parts.svg", null, null, null, "빔 전송 부품", "Beam delivery parts"),
+    maker("Beam Delivery parts", "beam-delivery-parts", "/makers/beam-delivery-parts.svg", null, "Beam Delivery Parts", "Beam Delivery Parts", "빔 전송 부품", "Beam delivery parts"),
   ],
 };
 
