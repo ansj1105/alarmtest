@@ -186,6 +186,8 @@ export function ProductsAdminSection({
       name: string;
       logoUrl: string;
       website: string | null;
+      groupKo: string | null;
+      groupEn: string | null;
       summaryKo: string;
       summaryEn: string;
       descriptionKo: string;

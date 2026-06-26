@@ -852,6 +852,8 @@ export async function saveProductMaker(formData: FormData) {
     name: String(formData.get("name") ?? "").trim(),
     logoUrl: logoUrl ?? "",
     website: String(formData.get("website") ?? "").trim() || null,
+    groupKo: String(formData.get("groupKo") ?? "").trim() || null,
+    groupEn: String(formData.get("groupEn") ?? "").trim() || null,
     summaryKo: String(formData.get("summaryKo") ?? ""),
     summaryEn: String(formData.get("summaryEn") ?? ""),
     descriptionKo: String(formData.get("descriptionKo") ?? ""),

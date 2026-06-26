@@ -112,8 +112,8 @@ export default async function ProductMakerDetailPage({
             <h2>{locale === "ko" ? "제조사 제품 구성과 적용 검토" : "Manufacturer lineup and application review"}</h2>
             <p>
               {locale === "ko"
-                ? "첨부된 제조사 상세 페이지 구성을 기준으로 제품 이미지, 주요 설명, 적용 검토 항목을 한 화면에서 확인할 수 있도록 정리했습니다."
-                : "The page is structured around the supplied manufacturer reference layout, with product visuals, key descriptions, and application review points in one flow."}
+                ? "제조사 제품군을 이미지, 기본 정보, 적용 검토 항목 중심으로 한 화면에서 확인할 수 있도록 정리했습니다."
+                : "Manufacturer lineups are organized around product visuals, key descriptions, and application review points in one flow."}
             </p>
           </div>
 
@@ -131,8 +131,14 @@ export default async function ProductMakerDetailPage({
                       </div>
                     ) : null}
                     <div className="makerDetailProductCopy">
+                      <span className="makerDetailCardMaker">{maker.name}</span>
                       <h3>{title}</h3>
                       <p>{body}</p>
+                      {maker.website ? (
+                        <a href={maker.website} target="_blank" rel="noreferrer" className="makerDetailProductLink">
+                          {locale === "ko" ? "제조사 홈페이지" : "Manufacturer website"}
+                        </a>
+                      ) : null}
                     </div>
                   </article>
                 );

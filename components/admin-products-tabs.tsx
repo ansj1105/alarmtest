@@ -54,6 +54,8 @@ type ProductMakerItem = {
   name: string;
   logoUrl: string;
   website: string | null;
+  groupKo: string | null;
+  groupEn: string | null;
   summaryKo: string;
   summaryEn: string;
   descriptionKo: string;
@@ -592,6 +594,14 @@ export function AdminProductsTabs({
                           <span>Website</span>
                           <input name="website" defaultValue={maker.website ?? ""} />
                         </label>
+                        <label className="field">
+                          <span>중분류 KO</span>
+                          <input name="groupKo" defaultValue={maker.groupKo ?? ""} placeholder="예: Diode laser" />
+                        </label>
+                        <label className="field">
+                          <span>중분류 EN</span>
+                          <input name="groupEn" defaultValue={maker.groupEn ?? ""} placeholder="e.g. Diode laser" />
+                        </label>
                       </div>
                       <div className="lumosAdminFormGrid">
                         <label className="field">
@@ -664,6 +674,14 @@ export function AdminProductsTabs({
                 <label className="field">
                   <span>Website</span>
                   <input name="website" />
+                </label>
+                <label className="field">
+                  <span>중분류 KO</span>
+                  <input name="groupKo" placeholder="예: Diode laser" />
+                </label>
+                <label className="field">
+                  <span>중분류 EN</span>
+                  <input name="groupEn" placeholder="e.g. Diode laser" />
                 </label>
               </div>
               <div className="lumosAdminFormGrid">

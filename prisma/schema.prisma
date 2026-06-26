@@ -176,6 +176,8 @@ model ProductMaker {
   name           String
   logoUrl        String
   website        String?
+  groupKo        String?
+  groupEn        String?
   summaryKo      String   @db.Text
   summaryEn      String   @db.Text
   descriptionKo  String   @db.Text

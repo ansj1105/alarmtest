@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
 /*
  * Breakpoints (미디어 쿼리 기준)
  * ---------------------------
@@ -11718,6 +11718,20 @@ body {
   text-align: left;
 }
 
+.productCategoryPage .productMakerGroups,
+.productCategoryPage .productMakerGroup {
+  width: min(100%, 1040px);
+  margin-inline: auto;
+}
+
+.productCategoryPage .productMakerGroupHead {
+  padding-inline: 0;
+}
+
+.productCategoryPage .productMakerGroupHead h3 {
+  color: #ffffff;
+}
+
 .productCategoryPage .productMakerGrid {
   width: min(100%, 1040px);
   margin: 0 auto;
@@ -13750,6 +13764,7 @@ body {
   .companyPartnerSurface,
   .resourceDetailLayout,
   .productMakerPageHead,
+  .productMakerGroups,
   .productMakerGrid,
   .productMakerSupport
 ) {
@@ -13757,7 +13772,7 @@ body {
   margin-inline: auto;
 }
 
-.shell main :is(.productMakerPageHead, .productMakerGrid, .productMakerSupport) {
+.shell main :is(.productMakerPageHead, .productMakerGroups, .productMakerGrid, .productMakerSupport) {
   width: min(100%, var(--sh-content-max-narrow));
 }
 
@@ -14540,6 +14555,31 @@ body {
   gap: 10px;
   align-content: start;
   padding: clamp(20px, 2.6vw, 30px);
+}
+
+.makerDetailCardMaker {
+  color: #54cce8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.makerDetailProductLink {
+  justify-self: start;
+  margin-top: 6px;
+  border-bottom: 1px solid rgba(84, 204, 232, 0.78);
+  color: #54cce8;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.makerDetailProductLink:hover,
+.makerDetailProductLink:focus-visible {
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .makerDetailProductCopy h3,

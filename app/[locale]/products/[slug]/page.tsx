@@ -60,6 +60,20 @@ export default async function ProductDetailPage({
   const heroEyebrow = locale === "ko" ? product.heroEyebrowKo || "Product" : product.heroEyebrowEn || "Product";
   const heroBgImage = product.heroBgImageUrl || "/subpage-products-laser-bg.png";
   const makers = await getProductMakersByProductSlug(slug);
+  const groupedMakers = makers.reduce<Array<{ title: string; makers: typeof makers }>>((groups, maker) => {
+    const groupTitle = locale === "ko" ? maker.groupKo : maker.groupEn;
+    const fallbackTitle = locale === "ko" ? "제조사" : "Makers";
+    const title = groupTitle || fallbackTitle;
+    const existingGroup = groups.find((group) => group.title === title);
+
+    if (existingGroup) {
+      existingGroup.makers.push(maker);
+    } else {
+      groups.push({ title, makers: [maker] });
+    }
+
+    return groups;
+  }, []);
 
   return (
     <div className={`productsPage productCategoryPage productCategoryPage-${slug}`}>
@@ -78,15 +92,24 @@ export default async function ProductDetailPage({
           <p>{localizedSummary}</p>
         </section>
 
-        <section className="productMakerGrid" aria-label={locale === "ko" ? "제조사 목록" : "Manufacturer list"}>
-          {makers.map((maker) => (
-            <Link key={maker.slug} href={`/${locale}/products/${slug}/${maker.slug}`} className="productMakerCard">
-              <span className="productMakerLogo">
-                <Image src={maker.logoUrl} alt={maker.name} fill sizes="(max-width: 760px) 50vw, 220px" />
-              </span>
-              <strong>{maker.name}</strong>
-              <em>{locale === "ko" ? maker.summaryKo : maker.summaryEn}</em>
-            </Link>
+        <section className="productMakerGroups" aria-label={locale === "ko" ? "제조사 목록" : "Manufacturer list"}>
+          {groupedMakers.map((group) => (
+            <section key={group.title} className="productMakerGroup" aria-labelledby={`product-maker-group-${group.title}`}>
+              <div className="productMakerGroupHead">
+                <h3 id={`product-maker-group-${group.title}`}>{group.title}</h3>
+              </div>
+              <div className="productMakerGrid">
+                {group.makers.map((maker) => (
+                  <Link key={maker.slug} href={`/${locale}/products/${slug}/${maker.slug}`} className="productMakerCard">
+                    <span className="productMakerLogo">
+                      <Image src={maker.logoUrl} alt={maker.name} fill sizes="(max-width: 760px) 50vw, 220px" />
+                    </span>
+                    <strong>{maker.name}</strong>
+                    <em>{locale === "ko" ? maker.summaryKo : maker.summaryEn}</em>
+                  </Link>
+                ))}
+              </div>
+            </section>
           ))}
         </section>
 

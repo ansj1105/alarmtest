@@ -63,7 +63,8 @@ const detailContent: Record<string, MakerDetailContent> = {
     blocks: [
       block("CO2 레이저", "CO2 lasers", "산업용 절단, 마킹, 표면 처리 공정에 필요한 출력 안정성과 수명을 검토합니다.", "Output stability and lifetime are reviewed for cutting, marking, and surface processing.", "/maker-detail/iradion-1.png"),
       block("세라미코어 레이저", "Ceramicore laser source", "세라믹 기반 구조의 안정성과 유지보수 조건을 함께 검토합니다.", "Ceramic architecture, stability, and maintenance conditions are reviewed together.", "/maker-detail/iradion-2.png"),
-      block("정밀 펄스 소스", "Precision pulsed sources", "나노초 및 펨토초 공정에서 요구되는 펄스 특성과 장비 연계를 확인합니다.", "Pulse behavior and equipment integration are checked for nanosecond and femtosecond processes.", "/maker-detail/iradion-3.png"),
+      block("럭시나 듀라라이프 CO2 레이저", "Luxinar DuraLife CO2 laser sources", "산업 공정에서 요구되는 출력 안정성, 수명, 유지보수 조건을 함께 검토합니다.", "Output stability, lifetime, and maintenance conditions are reviewed for industrial processes.", "/maker-detail/iradion-3.png"),
+      block("고체 상태 레이저", "Solid-state laser precision", "정밀도와 장비 연계를 기준으로 고체 상태 레이저 적용 조건을 확인합니다.", "Solid-state laser application conditions are checked by precision and equipment integration requirements.", "/maker-detail/iradion-4.png"),
     ],
     notesKo: ["CO2 레이저", "나노초·펨토초 소스", "산업용 안정성 검토"],
     notesEn: ["CO2 lasers", "Nanosecond and femtosecond sources", "Industrial stability review"],
@@ -100,6 +101,18 @@ const detailContent: Record<string, MakerDetailContent> = {
     notesKo: ["출력·파장 검토", "광학 구성 확인", "제조사 기술 협의"],
     notesEn: ["Output and wavelength review", "Optical configuration check", "Manufacturer technical coordination"],
   },
+  "laser/dilas": {
+    labelKo: "Diode laser",
+    labelEn: "Diode laser",
+    headlineKo: "Dilas 다이오드 레이저 구성",
+    headlineEn: "Dilas diode laser lineup",
+    leadKo: "다이오드 레이저 소스와 패키지 구성을 출력, 파장, 냉각 조건에 맞춰 검토합니다.",
+    leadEn: "Diode laser sources and package configurations are reviewed by output, wavelength, and cooling requirements.",
+    heroImage: "/maker-detail/laser-packages-1.png",
+    blocks: laserPackageBlocks,
+    notesKo: ["다이오드 레이저", "패키지 구성", "냉각 및 장착 검토"],
+    notesEn: ["Diode lasers", "Package configuration", "Cooling and mounting review"],
+    },
   "laser/seminex": {
     labelKo: "Laser",
     labelEn: "Laser",
