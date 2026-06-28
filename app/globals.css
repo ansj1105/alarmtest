@@ -10116,9 +10116,10 @@ body {
 }
 
 .navDropdown.isProductsDropdown .navDropdownSubDepthList {
-  left: 100%;
+  left: calc(100% + var(--product-dropdown-panel-width));
   margin-left: 0;
   transform: translateX(0);
+  z-index: 40;
 }
 
 .navDropdown.isProductsDropdown .navDropdownDepthList::before,
@@ -10135,13 +10136,21 @@ body {
   transform: translateX(0);
 }
 
-.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownDepthList .navDropdownDepthGroup.hasDepth > .navDropdownSubDepthList,
-.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:focus-within > .navDropdownDepthList .navDropdownDepthGroup.hasDepth > .navDropdownSubDepthList {
+.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownDepthList > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList,
+.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:focus-within > .navDropdownDepthList > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList,
+.navDropdown.isProductsDropdown .navDropdownDepthGroup.hasDepth:hover > .navDropdownSubDepthList,
+.navDropdown.isProductsDropdown .navDropdownDepthGroup.hasDepth:focus-within > .navDropdownSubDepthList {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
-  left: 100%;
+  left: calc(100% + var(--product-dropdown-panel-width));
   margin-left: 0;
+}
+
+.navDropdown.isProductsDropdown .navDropdownDepthList:has(.navDropdownDepthGroup.hasDepth:hover) > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList,
+.navDropdown.isProductsDropdown .navDropdownDepthList:has(.navDropdownDepthGroup.hasDepth:focus-within) > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownLink.hasDepth,
