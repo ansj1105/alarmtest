@@ -61,6 +61,68 @@ export function Header({ locale, productLinks }: HeaderProps) {
     });
   }
 
+  function renderProductDropdownItems(items: NavLinkItem[]) {
+    return items.map((product) => {
+      const depthTwoItems = product.children ?? [];
+      const depthThreeItems = depthTwoItems.flatMap((depthTwoItem) => depthTwoItem.children ?? []);
+      const hasDepth = depthTwoItems.length > 0;
+      const hasThirdDepth = depthThreeItems.length > 0;
+
+      return (
+        <div key={product.href} className={`navDropdownGroup ${hasDepth ? "hasDepth" : ""}`}>
+          <Link
+            href={`/${locale}${product.href}`}
+            className={`navDropdownLink ${hasDepth ? "hasDepth" : ""}`}
+            onClick={() => {
+              setOpenNavHref(null);
+              setSuppressNavHover(true);
+            }}
+          >
+            {product.label}
+          </Link>
+          {hasDepth ? (
+            <div className="navDropdownDepthList">
+              {depthTwoItems.map((depthTwoItem) => (
+                <div
+                  key={depthTwoItem.href}
+                  className={`navDropdownDepthGroup ${depthTwoItem.children?.length ? "hasDepth" : ""}`}
+                >
+                  <Link
+                    href={`/${locale}${depthTwoItem.href}`}
+                    className={`navDropdownDepthLink ${depthTwoItem.children?.length ? "hasDepth" : ""}`}
+                    onClick={() => {
+                      setOpenNavHref(null);
+                      setSuppressNavHover(true);
+                    }}
+                  >
+                    {depthTwoItem.label}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ) : null}
+          {hasThirdDepth ? (
+            <div className="navDropdownSubDepthList">
+              {depthThreeItems.map((depthThreeItem) => (
+                <Link
+                  key={depthThreeItem.href}
+                  href={`/${locale}${depthThreeItem.href}`}
+                  className="navDropdownSubDepthLink"
+                  onClick={() => {
+                    setOpenNavHref(null);
+                    setSuppressNavHover(true);
+                  }}
+                >
+                  {depthThreeItem.label}
+                </Link>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      );
+    });
+  }
+
   useEffect(() => {
     setOpenNavHref(null);
     setOpenMobileSection(null);
@@ -128,7 +190,7 @@ export function Header({ locale, productLinks }: HeaderProps) {
                       item.href === "/products" ? "isProductsDropdown" : "isSingleColumnDropdown"
                     }`}
                   >
-                    {renderDropdownItems(item.children)}
+                    {item.href === "/products" ? renderProductDropdownItems(item.children) : renderDropdownItems(item.children)}
                   </div>
                 ) : null}
               </div>

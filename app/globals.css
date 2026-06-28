@@ -10129,28 +10129,11 @@ body {
 
 .navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownDepthList,
 .navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:focus-within > .navDropdownDepthList,
-.navDropdown.isProductsDropdown .navDropdownDepthGroup.hasDepth:hover > .navDropdownSubDepthList,
-.navDropdown.isProductsDropdown .navDropdownDepthGroup.hasDepth:focus-within > .navDropdownSubDepthList {
+.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownSubDepthList,
+.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:focus-within > .navDropdownSubDepthList {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
-}
-
-.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownDepthList > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList,
-.navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:focus-within > .navDropdownDepthList > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList,
-.navDropdown.isProductsDropdown .navDropdownDepthGroup.hasDepth:hover > .navDropdownSubDepthList,
-.navDropdown.isProductsDropdown .navDropdownDepthGroup.hasDepth:focus-within > .navDropdownSubDepthList {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-  left: calc(100% + var(--product-dropdown-panel-width));
-  margin-left: 0;
-}
-
-.navDropdown.isProductsDropdown .navDropdownDepthList:has(.navDropdownDepthGroup.hasDepth:hover) > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList,
-.navDropdown.isProductsDropdown .navDropdownDepthList:has(.navDropdownDepthGroup.hasDepth:focus-within) > .navDropdownDepthGroup.hasDepth:first-child > .navDropdownSubDepthList {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .navDropdown.isProductsDropdown .navDropdownGroup.hasDepth:hover > .navDropdownLink.hasDepth,
@@ -10163,6 +10146,8 @@ body {
 
 .navDropdown.isProductsDropdown .navDropdownDepthLink,
 .navDropdown.isProductsDropdown .navDropdownSubDepthLink {
+  display: flex;
+  align-items: center;
   padding: 9px 24px;
   color: rgba(38, 52, 65, 0.72);
   font-size: 13px;
