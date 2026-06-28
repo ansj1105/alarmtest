@@ -10047,16 +10047,22 @@ body {
 }
 
 .navDropdown.isProductsDropdown {
-  min-width: 280px;
-  grid-template-columns: minmax(240px, 1fr);
+  --product-dropdown-panel-width: 308px;
+  --product-dropdown-panel-height: 322px;
+  width: var(--product-dropdown-panel-width);
+  min-width: var(--product-dropdown-panel-width);
+  min-height: var(--product-dropdown-panel-height);
+  grid-template-columns: minmax(0, 1fr);
   overflow: visible;
 }
 
-.navDropdownGroup {
-  position: relative;
+.navDropdown.isProductsDropdown .navDropdownGroup,
+.navDropdown.isProductsDropdown .navDropdownDepthGroup {
+  position: static;
 }
 
-.navDropdownDepthGroup {
+.navDropdown:not(.isProductsDropdown) .navDropdownGroup,
+.navDropdown:not(.isProductsDropdown) .navDropdownDepthGroup {
   position: relative;
 }
 
@@ -10093,9 +10099,12 @@ body {
   left: 100%;
   margin: 0;
   z-index: 30;
-  min-width: 260px;
+  width: var(--product-dropdown-panel-width);
+  min-width: var(--product-dropdown-panel-width);
+  min-height: var(--product-dropdown-panel-height);
   padding: 12px 0;
   display: grid;
+  align-content: start;
   gap: 2px;
   background: rgba(255, 255, 255, 0.99);
   border: 1px solid rgba(15, 34, 61, 0.08);
