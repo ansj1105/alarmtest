@@ -10106,7 +10106,7 @@ body {
   padding: 12px 0;
   display: grid;
   align-content: start;
-  gap: 2px;
+  gap: 0;
   background: rgba(255, 255, 255, 0.99);
   border: 1px solid rgba(15, 34, 61, 0.08);
   border-radius: 0;
@@ -10154,6 +10154,11 @@ body {
 
 .navDropdown.isProductsDropdown .navDropdownSubDepthGroup.isEmpty {
   pointer-events: none;
+}
+
+.navDropdown.isProductsDropdown .navDropdownSubDepthSpacer {
+  display: block;
+  min-height: var(--product-dropdown-row-height);
 }
 
 .navDropdown.isProductsDropdown .navDropdownDepthLink,

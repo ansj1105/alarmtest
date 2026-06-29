@@ -110,19 +110,23 @@ export function Header({ locale, productLinks }: HeaderProps) {
                   aria-hidden={depthTwoItem.children?.length ? undefined : true}
                   style={{ ["--subdepth-row-span" as string]: Math.max(1, depthTwoItem.children?.length ?? 0) }}
                 >
-                  {depthTwoItem.children?.map((depthThreeItem) => (
-                    <Link
-                      key={depthThreeItem.href}
-                      href={`/${locale}${depthThreeItem.href}`}
-                      className="navDropdownSubDepthLink"
-                      onClick={() => {
-                        setOpenNavHref(null);
-                        setSuppressNavHover(true);
-                      }}
-                    >
-                      {depthThreeItem.label}
-                    </Link>
-                  ))}
+                  {depthTwoItem.children?.length ? (
+                    depthTwoItem.children.map((depthThreeItem) => (
+                      <Link
+                        key={depthThreeItem.href}
+                        href={`/${locale}${depthThreeItem.href}`}
+                        className="navDropdownSubDepthLink"
+                        onClick={() => {
+                          setOpenNavHref(null);
+                          setSuppressNavHover(true);
+                        }}
+                      >
+                        {depthThreeItem.label}
+                      </Link>
+                    ))
+                  ) : (
+                    <span className="navDropdownSubDepthSpacer" />
+                  )}
                 </div>
               ))}
             </div>
