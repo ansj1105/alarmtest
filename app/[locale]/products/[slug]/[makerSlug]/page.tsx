@@ -73,6 +73,27 @@ export default async function ProductMakerDetailPage({
   const detailNotes = detail ? (locale === "ko" ? detail.notesKo : detail.notesEn) : [];
   const detailBlocks = detail?.blocks ?? [];
   const detailProductGroups = detail?.productGroups ?? [];
+  const detailCatalogGroups = detailProductGroups.length
+    ? detailProductGroups.map((group) => ({
+        title: locale === "ko" ? group.titleKo : group.titleEn,
+        products: group.products.map((productItem) => ({
+          name: productItem.name,
+          image: productItem.image,
+          specs: locale === "ko" ? productItem.specsKo : productItem.specsEn,
+        })),
+      }))
+    : detailBlocks.length
+      ? [
+          {
+            title: "PRODUCT LINEUP",
+            products: detailBlocks.map((item) => ({
+              name: locale === "ko" ? item.titleKo : item.titleEn,
+              image: item.image,
+              specs: [locale === "ko" ? item.bodyKo : item.bodyEn],
+            })),
+          },
+        ]
+      : [];
   const heroBgImage = product.heroBgImageUrl || "/subpage-products-laser-bg.png";
   const primaryImage = detail?.heroImage ?? maker.logoUrl;
 
@@ -118,18 +139,13 @@ export default async function ProductMakerDetailPage({
             </p>
           </div>
 
-          {detailProductGroups.length ? (
+          {detailCatalogGroups.length ? (
             <div className="makerDetailCatalog" aria-label={locale === "ko" ? "제조사 제품 목록" : "Manufacturer products"}>
-              {detailProductGroups.map((group) => {
-                const groupTitle = locale === "ko" ? group.titleKo : group.titleEn;
-
-                return (
-                  <section key={groupTitle} className="makerDetailCatalogGroup" aria-labelledby={`maker-detail-group-${groupTitle}`}>
-                    <h3 id={`maker-detail-group-${groupTitle}`}>{groupTitle}</h3>
+              {detailCatalogGroups.map((group) => (
+                  <section key={group.title} className="makerDetailCatalogGroup" aria-labelledby={`maker-detail-group-${group.title}`}>
+                    <h3 id={`maker-detail-group-${group.title}`}>{group.title}</h3>
                     <div className="makerDetailCatalogGrid">
                       {group.products.map((productItem) => {
-                        const specs = locale === "ko" ? productItem.specsKo : productItem.specsEn;
-
                         return (
                           <article key={productItem.name} className="makerDetailCatalogCard">
                             {productItem.image ? (
@@ -141,7 +157,7 @@ export default async function ProductMakerDetailPage({
                               <span>{maker.name}</span>
                               <h4>{productItem.name}</h4>
                               <ul>
-                                {specs.map((spec) => (
+                                {productItem.specs.map((spec) => (
                                   <li key={spec}>{spec}</li>
                                 ))}
                               </ul>
@@ -156,35 +172,7 @@ export default async function ProductMakerDetailPage({
                       })}
                     </div>
                   </section>
-                );
-              })}
-            </div>
-          ) : detailBlocks.length ? (
-            <div className="makerDetailProductGrid">
-              {detailBlocks.map((item) => {
-                const title = locale === "ko" ? item.titleKo : item.titleEn;
-                const body = locale === "ko" ? item.bodyKo : item.bodyEn;
-
-                return (
-                  <article key={title} className="makerDetailProductCard">
-                    {item.image ? (
-                      <div className="makerDetailProductMedia">
-                        <Image src={item.image} alt={title} fill sizes="(max-width: 760px) 100vw, 360px" />
-                      </div>
-                    ) : null}
-                    <div className="makerDetailProductCopy">
-                      <span className="makerDetailCardMaker">{maker.name}</span>
-                      <h3>{title}</h3>
-                      <p>{body}</p>
-                      {maker.website ? (
-                        <a href={maker.website} target="_blank" rel="noreferrer" className="makerDetailProductLink">
-                          {locale === "ko" ? "제조사 홈페이지" : "Manufacturer website"}
-                        </a>
-                      ) : null}
-                    </div>
-                  </article>
-                );
-              })}
+                ))}
             </div>
           ) : (
             <article className="makerDetailFallbackPanel">

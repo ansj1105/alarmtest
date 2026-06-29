@@ -10049,6 +10049,7 @@ body {
 .navDropdown.isProductsDropdown {
   --product-dropdown-panel-width: 308px;
   --product-dropdown-panel-height: 322px;
+  --product-dropdown-row-height: 35px;
   width: var(--product-dropdown-panel-width);
   min-width: var(--product-dropdown-panel-width);
   min-height: var(--product-dropdown-panel-height);
@@ -10144,11 +10145,23 @@ body {
   background: rgba(0, 95, 127, 0.04);
 }
 
+.navDropdown.isProductsDropdown .navDropdownDepthGroup,
+.navDropdown.isProductsDropdown .navDropdownSubDepthGroup {
+  display: grid;
+  align-content: start;
+  min-height: calc(var(--product-dropdown-row-height) * var(--subdepth-row-span, 1));
+}
+
+.navDropdown.isProductsDropdown .navDropdownSubDepthGroup.isEmpty {
+  pointer-events: none;
+}
+
 .navDropdown.isProductsDropdown .navDropdownDepthLink,
 .navDropdown.isProductsDropdown .navDropdownSubDepthLink {
   display: flex;
   align-items: center;
-  padding: 9px 24px;
+  min-height: var(--product-dropdown-row-height);
+  padding: 8px 24px;
   color: rgba(38, 52, 65, 0.72);
   font-size: 13px;
   line-height: 1.25;

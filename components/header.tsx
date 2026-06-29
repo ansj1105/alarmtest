@@ -64,9 +64,8 @@ export function Header({ locale, productLinks }: HeaderProps) {
   function renderProductDropdownItems(items: NavLinkItem[]) {
     return items.map((product) => {
       const depthTwoItems = product.children ?? [];
-      const depthThreeItems = depthTwoItems.flatMap((depthTwoItem) => depthTwoItem.children ?? []);
       const hasDepth = depthTwoItems.length > 0;
-      const hasThirdDepth = depthThreeItems.length > 0;
+      const hasThirdDepth = depthTwoItems.some((depthTwoItem) => depthTwoItem.children?.length);
 
       return (
         <div key={product.href} className={`navDropdownGroup ${hasDepth ? "hasDepth" : ""}`}>
@@ -86,6 +85,7 @@ export function Header({ locale, productLinks }: HeaderProps) {
                 <div
                   key={depthTwoItem.href}
                   className={`navDropdownDepthGroup ${depthTwoItem.children?.length ? "hasDepth" : ""}`}
+                  style={{ ["--subdepth-row-span" as string]: Math.max(1, depthTwoItem.children?.length ?? 0) }}
                 >
                   <Link
                     href={`/${locale}${depthTwoItem.href}`}
@@ -103,18 +103,27 @@ export function Header({ locale, productLinks }: HeaderProps) {
           ) : null}
           {hasThirdDepth ? (
             <div className="navDropdownSubDepthList">
-              {depthThreeItems.map((depthThreeItem) => (
-                <Link
-                  key={depthThreeItem.href}
-                  href={`/${locale}${depthThreeItem.href}`}
-                  className="navDropdownSubDepthLink"
-                  onClick={() => {
-                    setOpenNavHref(null);
-                    setSuppressNavHover(true);
-                  }}
+              {depthTwoItems.map((depthTwoItem) => (
+                <div
+                  key={`${depthTwoItem.href}-subdepth`}
+                  className={`navDropdownSubDepthGroup ${depthTwoItem.children?.length ? "hasItems" : "isEmpty"}`}
+                  aria-hidden={depthTwoItem.children?.length ? undefined : true}
+                  style={{ ["--subdepth-row-span" as string]: Math.max(1, depthTwoItem.children?.length ?? 0) }}
                 >
-                  {depthThreeItem.label}
-                </Link>
+                  {depthTwoItem.children?.map((depthThreeItem) => (
+                    <Link
+                      key={depthThreeItem.href}
+                      href={`/${locale}${depthThreeItem.href}`}
+                      className="navDropdownSubDepthLink"
+                      onClick={() => {
+                        setOpenNavHref(null);
+                        setSuppressNavHover(true);
+                      }}
+                    >
+                      {depthThreeItem.label}
+                    </Link>
+                  ))}
+                </div>
               ))}
             </div>
           ) : null}
